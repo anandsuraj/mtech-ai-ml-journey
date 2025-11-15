@@ -1,0 +1,89 @@
+# ---------------------------------------------
+
+# ✅ Core Python Environment
+
+# ---------------------------------------------
+numpy>=1.24.0
+pandas>=2.0.0
+matplotlib>=3.7.0
+scipy>=1.11.0
+scikit-learn>=1.3.0
+seaborn>=0.12.2
+tqdm>=4.65.0
+glob2
+imutils
+filterpy
+networkx>=3.0
+
+
+
+# ---------------------------------------------
+
+# ✅ Computer Vision
+
+# ---------------------------------------------
+opencv-python>=4.8.0
+cmake>=3.26.0
+dlib>=19.24.2
+ffmpeg-python
+ffprobe-python
+
+# ---------------------------------------------
+
+# ✅ Deep Learning Frameworks
+
+# ---------------------------------------------
+
+tensorflow>=2.15.0
+keras>=2.15.0
+torch>=2.2.0
+torchvision>=0.17.0
+torchaudio>=2.2.0
+torch-geometric>=2.5.0
+spektral>=1.3.0
+
+# ---------------------------------------------
+
+# ✅ Jupyter & Dev Tools
+
+# ---------------------------------------------
+jupyter
+jupyterlab
+notebook
+prefect>=2.15.0
+
+# ---------------------------------------------
+
+# ✅ Optional Visualization / Logging
+
+# ---------------------------------------------
+ipywidgets
+plotly
+tensorboard
+rich
+
+# ---------------------------------------------
+# ✅ Graph Database (Neo4j Integration)
+# ---------------------------------------------
+neo4j>=5.19.0           # Official Python driver for Neo4j
+py2neo>=2021.2.3        # High-level Neo4j ORM-like API (optional but powerful)
+
+# ---------------------------------------------
+
+# ✅ Simulation / Robotics (Python interfaces)
+
+# ---------------------------------------------
+pybullet
+
+# Gazebo & ROS2 installed via DNF (system packages)
+
+
+# ---------------------------------------------
+
+# ✅ Utilities
+
+# ---------------------------------------------
+requests
+gitpython
+
+
