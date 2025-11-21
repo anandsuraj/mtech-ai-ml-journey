@@ -1,0 +1,712 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spell Checker - NLP Assignment</title>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        /* ============================================
+           GLOBAL STYLES & RESET
+           ============================================ */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 100vh;
+            overflow: hidden;
+            color: #333;
+            padding: 15px;
+        }
+        
+        /* ============================================
+           CONTAINER & LAYOUT
+           ============================================ */
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+        }
+        
+        /* Header section - compact */
+        .header {
+            text-align: center;
+            color: white;
+            margin-bottom: 15px;
+        }
+        
+        .header h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .header p {
+            font-size: 0.9rem;
+            opacity: 0.9;
+        }
+        
+        /* Main content area */
+        .main-content {
+            flex: 1;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+            overflow: hidden;
+        }
+        
+        /* Card styling */
+        .card {
+            background: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin-bottom: 15px;
+            color: #667eea;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        /* ============================================
+           INPUT SECTION
+           ============================================ */
+        .input-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            min-height: 0;
+        }
+        
+        .input-textarea {
+            flex: 1;
+            width: 100%;
+            padding: 12px;
+            border: 2px solid #e0e0e0;
+            border-radius: 8px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            resize: none;
+            transition: border-color 0.3s ease;
+        }
+        
+        .input-textarea:focus {
+            outline: none;
+            border-color: #667eea;
+        }
+        
+        /* ============================================
+           BUTTONS
+           ============================================ */
+        .button-group {
+            display: flex;
+            gap: 10px;
+            margin-top: 12px;
+        }
+        
+        .btn {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 8px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            flex: 1;
+        }
+        
+        .btn-primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(102, 126, 234, 0.3);
+        }
+        
+        .btn-secondary {
+            background: #f5f5f5;
+            color: #666;
+        }
+        
+        .btn-secondary:hover {
+            background: #e0e0e0;
+        }
+        
+        .btn-small {
+            padding: 6px 12px;
+            font-size: 0.85rem;
+        }
+        
+        /* ============================================
+           RESULTS SECTION
+           ============================================ */
+        .results-section {
+            flex: 1;
+            overflow-y: auto;
+            min-height: 0;
+            margin-top: 12px;
+        }
+        
+        .results-section::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .results-section::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .results-section::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+        
+        .result-box {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .result-label {
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #666;
+            margin-bottom: 5px;
+        }
+        
+        .result-text {
+            font-size: 0.9rem;
+            line-height: 1.5;
+        }
+        
+        /* Statistics - compact */
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 8px;
+            margin-bottom: 12px;
+        }
+        
+        .stat-card {
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 8px;
+            text-align: center;
+        }
+        
+        .stat-number {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #667eea;
+        }
+        
+        .stat-label {
+            color: #666;
+            font-size: 0.75rem;
+        }
+        
+        /* Misspelled words - compact */
+        .word-item {
+            background: #fff;
+            padding: 8px;
+            border-radius: 6px;
+            margin-bottom: 8px;
+            border-left: 3px solid #e74c3c;
+        }
+        
+        .word-item-header {
+            font-weight: 600;
+            color: #e74c3c;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        
+        .suggestions {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .suggestion-chip {
+            background: #667eea;
+            color: white;
+            padding: 3px 8px;
+            border-radius: 12px;
+            font-size: 0.8rem;
+        }
+        
+        /* ============================================
+           HISTORY SECTION
+           ============================================ */
+        .history-list {
+            flex: 1;
+            overflow-y: auto;
+            min-height: 0;
+        }
+        
+        .history-list::-webkit-scrollbar {
+            width: 6px;
+        }
+        
+        .history-list::-webkit-scrollbar-track {
+            background: #f1f1f1;
+            border-radius: 10px;
+        }
+        
+        .history-list::-webkit-scrollbar-thumb {
+            background: #667eea;
+            border-radius: 10px;
+        }
+        
+        .history-item {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 12px;
+            margin-bottom: 10px;
+            border-left: 3px solid #667eea;
+        }
+        
+        .history-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 8px;
+            font-size: 0.8rem;
+            color: #666;
+        }
+        
+        .history-badge {
+            background: #667eea;
+            color: white;
+            padding: 2px 8px;
+            border-radius: 10px;
+            font-size: 0.75rem;
+        }
+        
+        .history-text {
+            font-size: 0.85rem;
+            margin: 5px 0;
+            padding: 8px;
+            background: white;
+            border-radius: 5px;
+        }
+        
+        .history-label {
+            font-weight: 600;
+            color: #333;
+            font-size: 0.8rem;
+            margin-bottom: 3px;
+        }
+        
+        .empty-history {
+            text-align: center;
+            padding: 40px 20px;
+            color: #999;
+        }
+        
+        .empty-history i {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            opacity: 0.5;
+        }
+        
+        /* ============================================
+           LOADING & ALERTS
+           ============================================ */
+        .loading {
+            display: none;
+            text-align: center;
+            padding: 15px;
+        }
+        
+        .loading.show {
+            display: block;
+        }
+        
+        .spinner {
+            border: 3px solid #f3f3f3;
+            border-top: 3px solid #667eea;
+            border-radius: 50%;
+            width: 35px;
+            height: 35px;
+            animation: spin 1s linear infinite;
+            margin: 0 auto 10px;
+        }
+        
+        .alert {
+            padding: 10px 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            display: none;
+            font-size: 0.85rem;
+        }
+        
+        .alert.show {
+            display: block;
+        }
+        
+        .alert-error {
+            background: #fee;
+            border-left: 3px solid #e74c3c;
+            color: #c0392b;
+        }
+        
+        .alert-success {
+            background: #efe;
+            border-left: 3px solid #27ae60;
+            color: #229954;
+        }
+        
+        /* ============================================
+           ANIMATIONS
+           ============================================ */
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* ============================================
+           RESPONSIVE DESIGN
+           ============================================ */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 1fr;
+                grid-template-rows: 1fr 1fr;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            body {
+                padding: 10px;
+            }
+            
+            .header h1 {
+                font-size: 1.5rem;
+            }
+            
+            .main-content {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto;
+            }
+            
+            .card {
+                padding: 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Header Section -->
+        <div class="header">
+            <h1><i class="fas fa-spell-check"></i> Spell Checker</h1>
+            <p>Using TextBlob library for accurate spell checking</p>
+        </div>
+        
+        <!-- Main Content Grid -->
+        <div class="main-content">
+            <!-- Left Column: Input & Check -->
+            <div class="card">
+                <div class="card-title">
+                    <i class="fas fa-keyboard"></i> Enter Text
+                </div>
+                
+                <!-- Alert Messages -->
+                <div id="alert" class="alert"></div>
+                
+                <!-- Input Section -->
+                <div class="input-section">
+                    <textarea 
+                        id="spell-input" 
+                        class="input-textarea" 
+                        placeholder="Type or paste your text here... (e.g., 'Teh quick brown fox jumps over teh lazy dog')"
+                    ></textarea>
+                </div>
+                
+                <div class="button-group">
+                    <button class="btn btn-primary" onclick="checkSpelling()">
+                        <i class="fas fa-check-circle"></i> Check Spelling
+                    </button>
+                    <button class="btn btn-secondary" onclick="clearResults()">
+                        <i class="fas fa-eraser"></i> Clear
+                    </button>
+                </div>
+                
+                <!-- Loading Spinner -->
+                <div id="spell-loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Checking spelling...</p>
+                </div>
+                
+                <!-- Results -->
+                <div id="spell-results" class="results-section"></div>
+            </div>
+            
+            <!-- Right Column: History -->
+            <div class="card">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
+                    <div class="card-title" style="margin: 0;">
+                        <i class="fas fa-history"></i> History
+                    </div>
+                    <button class="btn btn-secondary btn-small" onclick="clearHistory()">
+                        <i class="fas fa-trash"></i> Clear
+                    </button>
+                </div>
+                
+                <!-- Loading Spinner for History -->
+                <div id="history-loading" class="loading">
+                    <div class="spinner"></div>
+                    <p>Loading...</p>
+                </div>
+                
+                <!-- History List -->
+                <div id="history-list" class="history-list"></div>
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Load history on page load
+        window.addEventListener('load', function() {
+            loadHistory();
+        });
+        
+        // ============================================
+        // ALERT FUNCTIONS
+        // ============================================
+        function showAlert(message, type = 'error') {
+            const alert = document.getElementById('alert');
+            alert.className = `alert alert-${type} show`;
+            alert.innerHTML = `<i class="fas fa-${type === 'error' ? 'exclamation-circle' : 'check-circle'}"></i> ${message}`;
+            
+            setTimeout(() => hideAlert(), 5000);
+        }
+        
+        function hideAlert() {
+            document.getElementById('alert').classList.remove('show');
+        }
+        
+        // ============================================
+        // SPELL CHECKING FUNCTION
+        // ============================================
+        async function checkSpelling() {
+            const input = document.getElementById('spell-input').value.trim();
+            
+            if (!input) {
+                showAlert('Please enter some text to check.', 'error');
+                return;
+            }
+            
+            document.getElementById('spell-loading').classList.add('show');
+            document.getElementById('spell-results').innerHTML = '';
+            hideAlert();
+            
+            try {
+                const response = await fetch('/check_spelling', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({ text: input })
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    displaySpellResults(data);
+                    loadHistory(); // Refresh history
+                } else {
+                    showAlert(data.error || 'An error occurred', 'error');
+                }
+            } catch (error) {
+                showAlert('Failed to connect to server: ' + error.message, 'error');
+            } finally {
+                document.getElementById('spell-loading').classList.remove('show');
+            }
+        }
+        
+        function displaySpellResults(data) {
+            const resultsDiv = document.getElementById('spell-results');
+            
+            const totalWords = data.original.split(/\s+/).length;
+            const misspelledCount = Object.keys(data.misspelled).length;
+            const accuracy = ((totalWords - misspelledCount) / totalWords * 100).toFixed(1);
+            
+            let html = `
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-number">${totalWords}</div>
+                        <div class="stat-label">Words</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${misspelledCount}</div>
+                        <div class="stat-label">Errors</div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-number">${accuracy}%</div>
+                        <div class="stat-label">Accuracy</div>
+                    </div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Original</div>
+                    <div class="result-text">${data.original}</div>
+                </div>
+                
+                <div class="result-box">
+                    <div class="result-label">Corrected</div>
+                    <div class="result-text">${data.corrected}</div>
+                </div>
+            `;
+            
+            if (Object.keys(data.misspelled).length > 0) {
+                html += `<div style="margin-top: 10px;">`;
+                for (const [word, suggestions] of Object.entries(data.misspelled)) {
+                    html += `
+                        <div class="word-item">
+                            <div class="word-item-header">
+                                <i class="fas fa-times-circle"></i> "${word}"
+                            </div>
+                            <div class="suggestions">
+                    `;
+                    
+                    suggestions.forEach((suggestion, index) => {
+                        html += `<span class="suggestion-chip">${suggestion}</span>`;
+                    });
+                    
+                    html += `</div></div>`;
+                }
+                html += `</div>`;
+            } else {
+                html += `
+                    <div class="alert alert-success show">
+                        <i class="fas fa-check-circle"></i> Perfect! No errors found.
+                    </div>
+                `;
+            }
+            
+            resultsDiv.innerHTML = html;
+        }
+        
+        // ============================================
+        // HISTORY FUNCTIONS
+        // ============================================
+        async function loadHistory() {
+            const historyList = document.getElementById('history-list');
+            const loading = document.getElementById('history-loading');
+            
+            loading.classList.add('show');
+            historyList.innerHTML = '';
+            
+            try {
+                const response = await fetch('/history');
+                const data = await response.json();
+                
+                if (data.success && data.history.length > 0) {
+                    let html = '';
+                    
+                    data.history.forEach((item) => {
+                        html += `
+                            <div class="history-item">
+                                <div class="history-header">
+                                    <span><i class="fas fa-clock"></i> ${item.timestamp}</span>
+                                    <span class="history-badge">${item.misspelled_count} error${item.misspelled_count !== 1 ? 's' : ''}</span>
+                                </div>
+                                
+                                <div class="history-text">
+                                    <div class="history-label">Original:</div>
+                                    ${item.original}
+                                </div>
+                                
+                                <div class="history-text">
+                                    <div class="history-label">Corrected:</div>
+                                    ${item.corrected}
+                                </div>
+                            </div>
+                        `;
+                    });
+                    
+                    historyList.innerHTML = html;
+                } else {
+                    historyList.innerHTML = `
+                        <div class="empty-history">
+                            <i class="fas fa-inbox"></i>
+                            <p>No history yet</p>
+                        </div>
+                    `;
+                }
+            } catch (error) {
+                showAlert('Failed to load history: ' + error.message, 'error');
+            } finally {
+                loading.classList.remove('show');
+            }
+        }
+        
+        async function clearHistory() {
+            if (!confirm('Clear all history?')) {
+                return;
+            }
+            
+            try {
+                const response = await fetch('/clear_history', {
+                    method: 'POST'
+                });
+                
+                const data = await response.json();
+                
+                if (data.success) {
+                    showAlert('History cleared', 'success');
+                    loadHistory();
+                } else {
+                    showAlert(data.error || 'Failed to clear history', 'error');
+                }
+            } catch (error) {
+                showAlert('Failed to clear history: ' + error.message, 'error');
+            }
+        }
+        
+        function clearResults() {
+            document.getElementById('spell-input').value = '';
+            document.getElementById('spell-results').innerHTML = '';
+            hideAlert();
+        }
+        
+        // Keyboard shortcut
+        document.getElementById('spell-input').addEventListener('keydown', function(e) {
+            if ((e.ctrlKey || e.metaKey) && e.key === 'Enter') {
+                e.preventDefault();
+                checkSpelling();
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+[
+  {
+    "timestamp": "2025-11-21 12:25:55",
+    "original": "They beleive the proccess will improove once the new softwere is instaled.",
+    "corrected": "They believe the process will improve once the new software is installed.",
+    "misspelled_count": 5,
+    "misspelled_words": {
+      "beleive": [
+        "believe"
+      ],
+      "proccess": [
+        "process"
+      ],
+      "improove": [
+        "improve"
+      ],
+      "softwere": [
+        "software"
+      ],
+      "instaled": [
+        "installed"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 12:22:03",
+    "original": "They beleive the proccess will improove once the new softwere is instaled.",
+    "corrected": "They believe the process will improve once the new software is installed.",
+    "misspelled_count": 5,
+    "misspelled_words": {
+      "beleive": [
+        "believe"
+      ],
+      "proccess": [
+        "process"
+      ],
+      "improove": [
+        "improve"
+      ],
+      "softwere": [
+        "software"
+      ],
+      "instaled": [
+        "installed"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 12:21:42",
+    "original": "The comittee finaly annouced the resoults after sevral delyas.",
+    "corrected": "The committee finally announced the results after several delays.",
+    "misspelled_count": 6,
+    "misspelled_words": {
+      "comittee": [
+        "committee"
+      ],
+      "finaly": [
+        "finally",
+        "final",
+        "finely"
+      ],
+      "annouced": [
+        "announced"
+      ],
+      "resoults": [
+        "results"
+      ],
+      "sevral": [
+        "several"
+      ],
+      "delyas": [
+        "delays"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 12:21:20",
+    "original": "The restuarant’s menue was so confuzing that we orderd the wrong dish twice.",
+    "corrected": "The restaurant’s venue was so confusing that we order the wrong dish twice.",
+    "misspelled_count": 4,
+    "misspelled_words": {
+      "restuarant": [
+        "restaurant"
+      ],
+      "menue": [
+        "venue",
+        "menu"
+      ],
+      "confuzing": [
+        "confusing"
+      ],
+      "orderd": [
+        "order",
+        "orders",
+        "ordered"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 12:18:41",
+    "original": "sacrificces is nott rekuiredu",
+    "corrected": "sacrifices is not required",
+    "misspelled_count": 3,
+    "misspelled_words": {
+      "sacrificces": [
+        "sacrifices"
+      ],
+      "nott": [
+        "not",
+        "note",
+        "pott",
+        "mott",
+        "gott"
+      ],
+      "rekuiredu": [
+        "required"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 12:15:38",
+    "original": "sacrificces is nott rekuired",
+    "corrected": "sacrifices is not required",
+    "misspelled_count": 3,
+    "misspelled_words": {
+      "sacrificces": [
+        "sacrifices"
+      ],
+      "nott": [
+        "not",
+        "note",
+        "pott",
+        "mott",
+        "gott"
+      ],
+      "rekuired": [
+        "required"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 12:14:55",
+    "original": "i cate is not queen of forrest",
+    "corrected": "i came is not queen of forest",
+    "misspelled_count": 2,
+    "misspelled_words": {
+      "cate": [
+        "came",
+        "case",
+        "late",
+        "care",
+        "fate"
+      ],
+      "forrest": [
+        "forest"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 12:10:07",
+    "original": "i cate is not queen of forrest",
+    "corrected": "i cate is not queen of forrest",
+    "misspelled_count": 0,
+    "misspelled_words": {}
+  },
+  {
+    "timestamp": "2025-11-21 12:06:12",
+    "original": "i cate is not queen of forrest",
+    "corrected": "i cate is not queen of forrest",
+    "misspelled_count": 0,
+    "misspelled_words": {}
+  },
+  {
+    "timestamp": "2025-11-21 12:03:30",
+    "original": "i cate is not queen of forrest",
+    "corrected": "i cate is not queen of forrest",
+    "misspelled_count": 0,
+    "misspelled_words": {}
+  }
+]
