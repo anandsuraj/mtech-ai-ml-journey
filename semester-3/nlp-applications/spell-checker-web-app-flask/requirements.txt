@@ -1,8 +1,11 @@
 # Flask web framework for building the application
 Flask==3.0.0
 
-# TextBlob - comprehensive spell checking library with better accuracy
-textblob==0.17.1
+# PySpellChecker - multi-language spell checking library
+pyspellchecker==0.7.2
+
+# Language detection library
+langdetect==1.0.9
 
 # Werkzeug for Flask utilities
 Werkzeug==3.0.1

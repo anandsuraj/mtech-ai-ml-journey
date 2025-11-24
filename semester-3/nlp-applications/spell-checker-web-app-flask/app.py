@@ -1,9 +1,8 @@
 # Flask backend for Spell Checker Application
-# This application uses TextBlob library for spell checking
+# This application uses PySpellChecker library for spell checking
 
 from flask import Flask, render_template, request, jsonify
-from textblob import TextBlob
-from textblob import Word
+from spellchecker import SpellChecker
 import re
 import json
 import os
@@ -11,6 +10,9 @@ from datetime import datetime
 
 # Initialize Flask application
 app = Flask(__name__)
+
+# Initialize spell checker (English by default)
+spell = SpellChecker()
 
 # History file to store all spell checking attempts
 HISTORY_FILE = 'spell_check_history.json'
@@ -82,7 +84,7 @@ def extract_words(text):
 
 def check_spelling(text):
     """
-    Check spelling of text using TextBlob library.
+    Check spelling of text using PySpellChecker library.
     Detects misspelled words and provides correction suggestions.
     
     Args:
@@ -97,42 +99,34 @@ def check_spelling(text):
     # Extract words from text
     words = extract_words(text)
     
+    # Find misspelled words
+    misspelled = spell.unknown(words)
+    
     # Dictionary to store misspelled words and their suggestions
     misspelled_details = {}
     
-    # Check each word individually using TextBlob
-    for word in words:
-        # Create a Word object for spell checking
-        w = Word(word.lower())
-        
-        # Get spelling suggestions
-        suggestions = w.spellcheck()
-        
-        # If the word is misspelled, the first suggestion will have confidence < 1.0
-        # or the corrected word will be different from original
-        if suggestions and len(suggestions) > 0:
-            # suggestions is a list of tuples: [(word, confidence), ...]
-            top_suggestion = suggestions[0][0]
-            confidence = suggestions[0][1]
-            
-            # If confidence is not 1.0 or the suggestion is different, it's misspelled
-            if confidence < 1.0 or top_suggestion.lower() != word.lower():
-                # Get top 5 unique suggestions
-                unique_suggestions = []
-                seen = set()
-                for suggestion, conf in suggestions:
-                    if suggestion.lower() not in seen and suggestion.lower() != word.lower():
-                        unique_suggestions.append(suggestion)
-                        seen.add(suggestion.lower())
-                        if len(unique_suggestions) >= 5:
-                            break
-                
-                if unique_suggestions:
-                    misspelled_details[word] = unique_suggestions
+    # Get suggestions for each misspelled word
+    for word in misspelled:
+        # Get top 5 correction candidates
+        candidates = spell.candidates(word)
+        if candidates:
+            suggestions = list(candidates)[:5]
+            misspelled_details[word] = suggestions
     
-    # Auto-correct the text using TextBlob
-    blob = TextBlob(text)
-    corrected_text = str(blob.correct())
+    # Auto-correct the text
+    corrected_words = []
+    for word in words:
+        if word.lower() in misspelled:
+            # Use the best correction
+            correction = spell.correction(word.lower())
+            if correction:
+                corrected_words.append(correction)
+            else:
+                corrected_words.append(word)
+        else:
+            corrected_words.append(word)
+    
+    corrected_text = ' '.join(corrected_words)
     
     return {
         'original': text,
@@ -156,7 +150,7 @@ def check_spelling_route():
     """
     API endpoint for spell checking.
     
-    Receives text from frontend, checks spelling using TextBlob library,
+    Receives text from frontend, checks spelling using PySpellChecker library,
     and returns:
     - Original text
     - Corrected text
@@ -252,7 +246,7 @@ def clear_history():
 if __name__ == '__main__':
     print("=" * 60)
     print("Spell Checker Application")
-    print("Using TextBlob library for spell checking")
+    print("Using PySpellChecker library for spell checking")
     print("=" * 60)
     print("Starting Flask server...")
     print("Access the application at: http://localhost:5000")

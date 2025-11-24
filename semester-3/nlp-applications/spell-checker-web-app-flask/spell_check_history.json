@@ -1,5 +1,367 @@
 [
   {
+    "timestamp": "2025-11-24 13:13:17",
+    "original": "BITS pilani iss aa indiann universaty",
+    "corrected": "BITS plan iss a indian university",
+    "misspelled_count": 4,
+    "misspelled_words": {
+      "aa": [
+        "ua",
+        "fa",
+        "ga",
+        "au",
+        "wa"
+      ],
+      "pilani": [
+        "plane",
+        "poland",
+        "plans",
+        "piano",
+        "plant"
+      ],
+      "indiann": [
+        "indiana",
+        "indians",
+        "indian"
+      ],
+      "universaty": [
+        "university"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-24 13:13:09",
+    "original": "PySpellChecker",
+    "corrected": "PySpellChecker",
+    "misspelled_count": 0,
+    "misspelled_words": {}
+  },
+  {
+    "timestamp": "2025-11-24 13:09:59",
+    "original": "BITS pilani iss aa indiann universaty",
+    "corrected": "BITS plan iss a indian university",
+    "misspelled_count": 4,
+    "misspelled_words": {
+      "aa": [
+        "ua",
+        "fa",
+        "ga",
+        "au",
+        "wa"
+      ],
+      "pilani": [
+        "plane",
+        "poland",
+        "plans",
+        "piano",
+        "plant"
+      ],
+      "indiann": [
+        "indiana",
+        "indians",
+        "indian"
+      ],
+      "universaty": [
+        "university"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-24 13:09:40",
+    "original": "affecttt",
+    "corrected": "affect",
+    "misspelled_count": 1,
+    "misspelled_words": {
+      "affecttt": [
+        "affected",
+        "affect",
+        "affects"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-24 13:09:31",
+    "original": "affect",
+    "corrected": "affect",
+    "misspelled_count": 0,
+    "misspelled_words": {}
+  },
+  {
+    "timestamp": "2025-11-22 13:26:03",
+    "original": "They beleive the proccess will improove once the new softwere is noww.",
+    "corrected": "They believe the process will improve once the new software is now",
+    "misspelled_count": 5,
+    "misspelled_words": {
+      "improove": [
+        "improve"
+      ],
+      "noww": [
+        "knoww",
+        "oww",
+        "nowwe",
+        "nowi",
+        "now"
+      ],
+      "proccess": [
+        "process"
+      ],
+      "beleive": [
+        "believe"
+      ],
+      "softwere": [
+        "software"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-22 13:24:44",
+    "original": "They beleive the proccess will improove once the new softwere is noww.",
+    "corrected": "They believe the process will improve once the new software is now",
+    "misspelled_count": 5,
+    "misspelled_words": {
+      "improove": [
+        "improve"
+      ],
+      "noww": [
+        "knoww",
+        "oww",
+        "nowwe",
+        "nowi",
+        "now"
+      ],
+      "proccess": [
+        "process"
+      ],
+      "beleive": [
+        "believe"
+      ],
+      "softwere": [
+        "software"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 16:00:59",
+    "original": "हम लोग demain ऑफिस जाएंगे but ennaku meeting ready இல்ல",
+    "corrected": "remain but naku meeting ready",
+    "misspelled_count": 2,
+    "misspelled_words": {
+      "ennaku": [
+        "egaku",
+        "naku"
+      ],
+      "demain": [
+        "remain",
+        "detain",
+        "domain"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 16:00:44",
+    "original": "I am très tired aaj kyuki காலை முதல் kaam kar raha.",
+    "corrected": "I am tired raj yuki kama kar aha",
+    "misspelled_count": 4,
+    "misspelled_words": {
+      "kaam": [
+        "kadam",
+        "kama",
+        "kam",
+        "maam"
+      ],
+      "raha": [
+        "raga",
+        "haha",
+        "rasa",
+        "rara",
+        "rama"
+      ],
+      "kyuki": [
+        "yuki"
+      ],
+      "aaj": [
+        "maj",
+        "raj",
+        "taj",
+        "ajj",
+        "aj"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 16:00:05",
+    "original": "Tumne mujhe yesterday phone nahi kiya, I was waiting whole raat.",
+    "corrected": "tune much yesterday phone nazi kira I was waiting whole rat",
+    "misspelled_count": 5,
+    "misspelled_words": {
+      "mujhe": [
+        "mushu",
+        "mute",
+        "mune",
+        "mule",
+        "maje"
+      ],
+      "raat": [
+        "rhat",
+        "rapt",
+        "rant",
+        "raft",
+        "rat"
+      ],
+      "tumne": [
+        "tune"
+      ],
+      "nahi": [
+        "ahi",
+        "nah",
+        "nami",
+        "mahi",
+        "nachi"
+      ],
+      "kiya": [
+        "kia",
+        "miya",
+        "hiya",
+        "kira",
+        "kya"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 15:56:46",
+    "original": "BITS pilani izz aa indiann universaty",
+    "corrected": "BITS plan izz a indian university",
+    "misspelled_count": 4,
+    "misspelled_words": {
+      "indiann": [
+        "indian",
+        "indiana",
+        "indians"
+      ],
+      "pilani": [
+        "plans",
+        "pilate",
+        "piling",
+        "piano",
+        "milan"
+      ],
+      "universaty": [
+        "university"
+      ],
+      "aa": [
+        "asa",
+        "aga",
+        "ax",
+        "ag",
+        "ca"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 15:56:20",
+    "original": "BITS pilani iss aa indiann universaty",
+    "corrected": "BITS plan iss a indian university",
+    "misspelled_count": 4,
+    "misspelled_words": {
+      "indiann": [
+        "indian",
+        "indiana",
+        "indians"
+      ],
+      "pilani": [
+        "plans",
+        "pilate",
+        "piling",
+        "piano",
+        "milan"
+      ],
+      "universaty": [
+        "university"
+      ],
+      "aa": [
+        "asa",
+        "aga",
+        "ax",
+        "ag",
+        "ca"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 15:55:55",
+    "original": "The comittee finaly annouced the resoults after sevral delyas.",
+    "corrected": "The committee finally announced the results after several delays",
+    "misspelled_count": 6,
+    "misspelled_words": {
+      "annouced": [
+        "announced"
+      ],
+      "finaly": [
+        "finally",
+        "finale",
+        "finals",
+        "final",
+        "finely"
+      ],
+      "resoults": [
+        "results"
+      ],
+      "comittee": [
+        "committee"
+      ],
+      "delyas": [
+        "deltas",
+        "delays"
+      ],
+      "sevral": [
+        "several"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 15:55:23",
+    "original": "i cate is not queen of forrest",
+    "corrected": "i cate is not queen of forrest",
+    "misspelled_count": 0,
+    "misspelled_words": {}
+  },
+  {
+    "timestamp": "2025-11-21 15:55:16",
+    "original": "They believe the process will improve onse the new software is installedd.",
+    "corrected": "They believe the process will improve one the new software is installed",
+    "misspelled_count": 2,
+    "misspelled_words": {
+      "installedd": [
+        "installed"
+      ],
+      "onse": [
+        "one",
+        "nose",
+        "onhe",
+        "once",
+        "ose"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 15:55:10",
+    "original": "They believe the process will improve once the new software is installedd.",
+    "corrected": "They believe the process will improve once the new software is installed",
+    "misspelled_count": 1,
+    "misspelled_words": {
+      "installedd": [
+        "installed"
+      ]
+    }
+  },
+  {
+    "timestamp": "2025-11-21 15:54:47",
+    "original": "i cate is not queen of forrest",
+    "corrected": "i cate is not queen of forrest",
+    "misspelled_count": 0,
+    "misspelled_words": {}
+  },
+  {
     "timestamp": "2025-11-21 12:25:55",
     "original": "They beleive the proccess will improove once the new softwere is instaled.",
     "corrected": "They believe the process will improve once the new software is installed.",

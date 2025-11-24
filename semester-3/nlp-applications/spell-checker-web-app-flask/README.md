@@ -1,10 +1,10 @@
 # Spell Checker Application
 
-A web-based spell checker using Flask and **TextBlob** library with history tracking.
+A web-based spell checker using Flask and **PySpellChecker** library with history tracking.
 
 ## Features
 
-- ✅ Uses TextBlob library for accurate spell checking
+- ✅ Uses PySpellChecker library for accurate spell checking
 - ✅ Detects misspelled words in input text
 - ✅ Provides suggested corrections for each misspelling
 - ✅ **Stores all spell check history for future reference**
@@ -17,9 +17,6 @@ A web-based spell checker using Flask and **TextBlob** library with history trac
 ```bash
 # Install dependencies
 pip install -r requirements.txt
-
-# Download TextBlob corpora (first time only)
-python -m textblob.download_corpora
 ```
 
 ## Run
@@ -75,14 +72,4 @@ All spell checking attempts are automatically saved to `spell_check_history.json
 
 ## Library Used
 
-**TextBlob** - A comprehensive NLP library with accurate spell checking capabilities. It uses a large dictionary and provides better accuracy than basic spell checkers.
-
-## First Time Setup
-
-After installing requirements, download the TextBlob corpora:
-
-```bash
-python -m textblob.download_corpora
-```
-
-This downloads the necessary language data for accurate spell checking.
+**PySpellChecker** - A pure Python spell checking library that supports multiple languages. It uses frequency-based word lists and provides fast, accurate spell checking with support for English, Spanish, French, German, Portuguese, Russian, and Arabic.
