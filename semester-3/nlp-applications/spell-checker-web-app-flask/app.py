@@ -49,6 +49,7 @@ def save_to_history(original, corrected, misspelled_count, misspelled_words):
     
     # Create new history entry
     entry = {
+
         'timestamp': datetime.now().strftime('%Y-%m-%d %H:%M:%S'),
         'original': original,
         'corrected': corrected,
@@ -59,8 +60,8 @@ def save_to_history(original, corrected, misspelled_count, misspelled_words):
     # Add to beginning of history (most recent first)
     history.insert(0, entry)
     
-    # Keep only last 100 entries to prevent file from growing too large
-    history = history[:100]
+    # Keep only last 25 entries to prevent file from growing too large
+    history = history[:25]
     
     # Save to file
     with open(HISTORY_FILE, 'w', encoding='utf-8') as f:
