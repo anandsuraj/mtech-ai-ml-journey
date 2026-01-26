@@ -19,11 +19,18 @@ import re
 app = Flask(__name__)
 
 # Download NLTK data for tokenization if not already present
+nltk_data_dir = '/tmp/nltk_data'
+if not os.path.exists(nltk_data_dir):
+    os.makedirs(nltk_data_dir, exist_ok=True)
+nltk.data.path.insert(0, nltk_data_dir)
+
 try:
     nltk.data.find('tokenizers/punkt')
 except LookupError:
-    nltk.download('punkt')
-
+    try:
+        nltk.download('punkt', download_dir=nltk_data_dir, quiet=True)
+    except Exception as e:
+        print(f"Warning: Could not download punkt: {e}")
 # Initialize translator for Google Translate API access
 translator = Translator()
 
