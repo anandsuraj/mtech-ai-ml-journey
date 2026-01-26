@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistical Machine Translation with BLEU Evaluation</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Statistical Machine Translation(SMT)</h1>
+            <p class="subtitle">With BLEU Score Evaluation</p>
+            <p class="student-info">NLP Applications - Assignment 2 - Group 5</p>
+        </header>
+
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Input Section -->
+            <div class="card input-section">
+                <h2>Translation Input</h2>
+                
+                <!-- Language Selection -->
+                <div class="language-selector">
+                    <div class="lang-group">
+                        <label for="source-lang">Source Language</label>
+                        <select id="source-lang">
+                            <option value="en">English</option>
+                            <option value="hi">Hindi</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="zh-cn">Chinese (Simplified)</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ar">Arabic</option>
+                        </select>
+                    </div>
+                    
+                    <div class="arrow">→</div>
+                    
+                    <div class="lang-group">
+                        <label for="target-lang">Target Language</label>
+                        <select id="target-lang">
+                            <option value="hi">Hindi</option>
+                            <option value="en">English</option>
+                            <option value="es">Spanish</option>
+                            <option value="fr">French</option>
+                            <option value="de">German</option>
+                            <option value="zh-cn">Chinese (Simplified)</option>
+                            <option value="ja">Japanese</option>
+                            <option value="ar">Arabic</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Source Text Input -->
+                <div class="form-group">
+                    <label for="source-text">Enter text to translate:</label>
+                    <textarea id="source-text" rows="6" placeholder="Type or paste your text here..."></textarea>
+                </div>
+                
+                <!-- Translate Button -->
+                <button id="translate-btn" class="btn btn-primary">
+                    <span class="btn-text">Translate</span>
+                    <span class="spinner" style="display: none;">⏳</span>
+                </button>
+            </div>
+
+            <!-- Reference Section -->
+            <div class="card reference-section">
+                <h2>Reference Translation(s)</h2>
+                <p class="info-text">Provide one or more reference translations for BLEU evaluation</p>
+                
+                <div class="reference-options">
+                    <div class="tab-buttons">
+                        <button class="tab-btn active" data-tab="manual">Manual Entry</button>
+                        <button class="tab-btn" data-tab="upload">Upload File</button>
+                    </div>
+                    
+                    <!-- Manual Entry Tab -->
+                    <div id="manual-tab" class="tab-content active">
+                        <div id="reference-inputs">
+                            <div class="reference-input-group">
+                                <label>Reference 1:</label>
+                                <textarea class="reference-input" rows="3" placeholder="Enter reference translation..."></textarea>
+                            </div>
+                        </div>
+                        <button id="add-reference-btn" class="btn btn-secondary">+ Add Another Reference</button>
+                    </div>
+                    
+                    <!-- Upload Tab -->
+                    <div id="upload-tab" class="tab-content">
+                        <div class="upload-area">
+                            <input type="file" id="reference-file" accept=".txt" style="display: none;">
+                            <label for="reference-file" class="upload-label">
+                                📄 Click to upload reference file (.txt)
+                            </label>
+                            <p class="upload-info">One reference per line</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <button id="evaluate-btn" class="btn btn-accent" disabled>
+                    <span class="btn-text">Evaluate BLEU Score</span>
+                    <span class="spinner" style="display: none;">⏳</span>
+                </button>
+            </div>
+
+            <!-- Results Section -->
+            <div class="card results-section" id="results-section" style="display: none;">
+                <h2>✨ Translation Results</h2>
+                
+                <!-- Translated Text -->
+                <div class="result-box">
+                    <h3>Translated Text:</h3>
+                    <div id="translated-text" class="translated-output"></div>
+                </div>
+                
+                <!-- BLEU Score Section -->
+                <div id="bleu-section" style="display: none;">
+                    <h3>BLEU Score Evaluation:</h3>
+                    
+                    <!-- BLEU Score Display -->
+                    <div class="bleu-score-container">
+                        <div class="bleu-score-label">BLEU Score:</div>
+                        <div id="bleu-score" class="bleu-score">0.0000</div>
+                        <div id="bleu-quality" class="bleu-quality"></div>
+                    </div>
+                    
+                    <!-- N-gram Precision Table -->
+                    <div class="ngram-table-container">
+                        <h4>N-gram Precision Breakdown:</h4>
+                        <table class="ngram-table">
+                            <thead>
+                                <tr>
+                                    <th>N-gram Type</th>
+                                    <th>Precision</th>
+                                    <th>Percentage</th>
+                                </tr>
+                            </thead>
+                            <tbody id="ngram-tbody">
+                                <!-- Populated by JavaScript -->
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                    <!-- Additional Metrics -->
+                    <div class="additional-metrics">
+                        <div class="metric-item">
+                            <span class="metric-label">Brevity Penalty:</span>
+                            <span id="brevity-penalty" class="metric-value">0.0000</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Candidate Length:</span>
+                            <span id="candidate-length" class="metric-value">0</span>
+                        </div>
+                        <div class="metric-item">
+                            <span class="metric-label">Reference Length:</span>
+                            <span id="reference-length" class="metric-value">0</span>
+                        </div>
+                    </div>
+                    
+                    <!-- BLEU Score Interpretation -->
+                    <div class="info-box">
+                        <h4> Understanding BLEU Score:</h4>
+                        <ul>
+                            <li><strong>&lt; 0.3:</strong> Poor translation quality</li>
+                            <li><strong>0.3 - 0.5:</strong> Fair translation, understandable but with errors</li>
+                            <li><strong>0.5 - 0.7:</strong> Good translation, mostly accurate</li>
+                            <li><strong>&gt; 0.7:</strong> Excellent translation, very close to reference</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Error Display -->
+            <div id="error-message" class="error-message" style="display: none;"></div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p></p>
+            <p class="student-note">NLP Applications Assignment 2 - Group 5</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+</body>
+</html>

@@ -225,7 +225,7 @@ financial-sentiment/
 - [ ] **Explainable AI**: LIME/SHAP for prediction interpretation
 - [ ] **Production Deployment**: API service for real-time sentiment
 
-## 📚 Key Concepts Demonstrated
+##  Key Concepts Demonstrated
 
 ### NLP Fundamentals
 - **Text Preprocessing**: Cleaning and normalization techniques

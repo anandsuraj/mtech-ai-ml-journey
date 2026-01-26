@@ -197,7 +197,7 @@ deep-reinforcement-learning/
 - [ ] **Real-world Deployment**: Hardware integration and testing
 - [ ] **Explainable AI**: Interpretable decision-making processes
 
-## 📚 References & Citations
+##  References & Citations
 
 - Sutton, R. S., & Barto, A. G. (2018). *Reinforcement Learning: An Introduction*
 - Mnih, V., et al. (2015). *Human-level control through deep reinforcement learning*

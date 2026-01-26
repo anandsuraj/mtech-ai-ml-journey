@@ -268,7 +268,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 - **🔄 Pull Requests** for improvements and contributions
 - **💬 Discussions** for AI/ML topics and collaboration ideas
 
-### 📚 For Students & Researchers
+###  For Students & Researchers
 - Use this repository as a **learning resource**
 - **Cite** this work in your academic projects (see LICENSE)
 - **Collaborate** on research ideas and implementations
