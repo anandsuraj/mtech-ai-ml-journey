@@ -71,7 +71,7 @@ def get_ngrams(tokens, n):
 def modified_precision(candidate_tokens, reference_tokens_list, n):
     """
     Calculate n-gram precision with clipping to prevent gaming the metric.
-    Clips each n-gram count to max times it appears in any reference.
+    Clips  each n-gram count to max times it appears in any reference.
     
     Args:
         candidate_tokens (list): Tokens from candidate (machine) translation
