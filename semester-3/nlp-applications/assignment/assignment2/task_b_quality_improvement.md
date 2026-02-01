@@ -62,7 +62,7 @@ Student perspective - Where to get more training data:
 
 ### Challenges and Considerations
 
-**Student Note**: While more data is generally better, there are practical limitations:
+**Note**: While more data is generally better, there are practical limitations:
 
 - **Quality vs. Quantity**: Noisy or misaligned data can hurt performance
 - **Domain Mismatch**: Data from different domains may not help (e.g., medical text for general translation)
@@ -92,7 +92,7 @@ Best Translation = argmax [ P(target|source) × P(target) ]
 
 #### 1. N-gram Language Models (Traditional SMT)
 
-**Student Note**: These are the classic approach used in Moses and similar systems.
+**Note**: These are the classic approach used in Moses and similar systems.
 
 - **3-gram LM**: Looks at 3 consecutive words
 - **4-gram LM**: Looks at 4 consecutive words  
@@ -158,7 +158,7 @@ Translation is highly domain-dependent. Medical, legal, technical, and conversat
 
 ### Why Domain Matters
 
-**Student Note**: Understanding domain importance is crucial for practical MT deployment.
+**Note**: Understanding domain importance is crucial for practical MT deployment.
 
 Different domains have:
 

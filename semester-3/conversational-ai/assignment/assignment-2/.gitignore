@@ -1,0 +1,25 @@
+# Add venv to gitignore
+venv/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.DS_Store
+data/*.pkl
+data/*.bin
+data/*.json
+reports/
+.cache/
+set_env.sh
+HF_TOKEN*.png
+reports/*.html
+reports/*.json
+reports/*.csv
+.ipynb_checkpoints/
+HF_TOKEN=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

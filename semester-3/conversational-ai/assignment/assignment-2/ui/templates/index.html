@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid RAG System</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1>Hybrid RAG System</h1>
+            <p>Combining Dense Vector Retrieval, BM25, and Reciprocal Rank Fusion</p>
+        </header>
+
+        <!-- Search Section -->
+        <div class="search-section">
+            <div class="search-box">
+                <input 
+                    type="text" 
+                    id="searchInput" 
+                    class="search-input" 
+                    placeholder="Ask a question about Wikipedia articles..."
+                >
+                <button id="searchBtn" class="search-btn">Search</button>
+            </div>
+        </div>
+
+        <!-- Loading -->
+        <div id="loading" class="loading">
+            <div class="spinner"></div>
+            <p>Processing your query...</p>
+        </div>
+
+        <!-- Answer Section -->
+        <div id="answerSection" class="answer-section">
+            <h2 class="section-title">Answer</h2>
+            <div class="answer-box">
+                <p id="answerText"></p>
+            </div>
+
+            <!-- Metrics -->
+            <div class="metrics">
+                <div class="metric-card">
+                    <div class="metric-label">Retrieval Time</div>
+                    <div class="metric-value" id="retrievalTime">0.00s</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Generation Time</div>
+                    <div class="metric-value" id="generationTime">0.00s</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Total Time</div>
+                    <div class="metric-value" id="totalTime">0.00s</div>
+                </div>
+                <div class="metric-card">
+                    <div class="metric-label">Chunks Retrieved</div>
+                    <div class="metric-value" id="chunkCount">0</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Chunks Section -->
+        <div id="chunksSection" class="chunks-section">
+            <h2 class="section-title">Retrieved Chunks</h2>
+            <div id="chunksContainer"></div>
+        </div>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>Hybrid RAG System | Built for Conversational AI Assignment 2</p>
+        </footer>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/app.js') }}"></script>
+</body>
+</html>

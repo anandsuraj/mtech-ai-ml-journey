@@ -1,0 +1,14 @@
+version: '3.8'
+
+services:
+  rag-system:
+    build: .
+    container_name: hybrid-rag-system
+    ports:
+      - "5000:5000"
+    volumes:
+      - ./data:/app/data
+      - ./reports:/app/reports
+    environment:
+      - FLASK_ENV=development
+    command: python ui/app.py

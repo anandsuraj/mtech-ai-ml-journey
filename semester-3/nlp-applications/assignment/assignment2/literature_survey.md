@@ -10,7 +10,7 @@
 
 This literature survey examines the evolution and current state of automatic evaluation metrics for Statistical Machine Translation (SMT). We focus on BLEU and its variants, alternative metrics that address BLEU's limitations, and recent neural approaches to MT evaluation. The survey covers seminal papers from 2002 to recent 2024-2025 research, providing insights into how the field has progressed from simple n-gram matching to sophisticated neural evaluation systems.
 
-**Student Note**: This survey synthesizes research to understand why we use specific metrics and what the future holds for MT evaluation.
+**Note**: This survey synthesizes research to understand why we use specific metrics and what the future holds for MT evaluation.
 
 ---
 
@@ -180,7 +180,7 @@ Info(w_1...w_n) = log₂(# of occurrences of w_1...w_n-1 / # of occurrences of w
 ROUGE-N = Σ count_match(n-gram) / Σ count(n-gram in reference)
 ```
 
-**Student Note**: ROUGE is mainly for summarization, but concepts influenced MT evaluation thinking about balance between precision and recall.
+**Note**: ROUGE is mainly for summarization, but concepts influenced MT evaluation thinking about balance between precision and recall.
 
 ---
 
@@ -316,7 +316,7 @@ where chrP = character n-gram precision
 - German-English: ρ = 0.52 (vs BLEU: 0.48)
 - Finnish-English: ρ = 0.58 (vs BLEU: 0.42) - significant improvement!
 
-**Student Note**: chrF's success for morphologically rich languages shows that one-size-fits-all metrics have limitations. Language characteristics matter!
+**Note**: chrF's success for morphologically rich languages shows that one-size-fits-all metrics have limitations. Language characteristics matter!
 
 ---
 
@@ -457,7 +457,7 @@ BERTScore_F1 = 2 × (P × R) / (P + R)
 
 **Quote**: "BLEU is used because it is standard, not because it is necessarily the best metric."
 
-**Student Note**: This paper sparked important discussions about whether we should continue using BLEU as the primary metric.
+**Note**: This paper sparked important discussions about whether we should continue using BLEU as the primary metric.
 
 ### 8.3 Beyond Correlation: Task-Based Evaluation
 
@@ -696,15 +696,3 @@ BERTScore_F1 = 2 × (P × R) / (P + R)
 ### Survey and Meta-Analysis Papers
 
 20. Han, L. (2022). A Survey on Automatic Evaluation of Neural Text Generation. *IEEE Transactions on Neural Networks and Learning Systems*.
-
----
-
-**Submitted by**: Student  
-**Course**: NLP Applications - Semester 3  
-**Assignment**: Assignment 2, Part 2 - Literature Survey  
-**Topic**: Automatic Evaluation Metrics for Statistical Machine Translation  
-**Date**: January 26, 2026
-
----
-
-*This literature survey provides comprehensive coverage of MT evaluation metrics from BLEU (2002) to modern neural approaches (2025), synthesizing key papers, comparative studies, and emerging research directions.*

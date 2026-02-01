@@ -101,7 +101,7 @@ I chose googletrans for practical demonstration. The BLEU implementation is iden
    - Flexible grid layout
    - Touch-friendly button sizes
 
-4. **Student Note**: I wanted the UI to look professional enough to include in my portfolio, not just a basic assignment submission.
+4. **Note**: I wanted the UI to look professional enough to include in my portfolio, not just a basic assignment submission.
 
 ### 2.4 BLEU Implementation Approach
 
@@ -149,7 +149,7 @@ I chose googletrans for practical demonstration. The BLEU implementation is iden
 - Implemented request timeout handling
 - Added loading indicators in UI
 
-**Student Note**: In production, would use official Google Translate API with API key and quotas.
+**Note**: In production, would use official Google Translate API with API key and quotas.
 
 ### Challenge 3: Handling Multiple Reference Translations
 
@@ -322,7 +322,7 @@ Response:
 ![Home Page Screenshot](./screenshots/01_home_page.png)
 *Initial landing page with empty form*
 
-**Student Note**: Screenshots are included in the submitted screenshots/ directory.
+**Note**: Screenshots are included in the submitted screenshots/ directory.
 
 ### 5.2 Translation Process
 
@@ -586,7 +586,7 @@ def calculate_bleu(candidate, references, max_n=4):
     """
     Calculate BLEU score with detailed breakdown
     
-    Student Note: BLEU formula is:
+    Note: BLEU formula is:
     BLEU = BP * exp(sum of log(precision_n) / N)
     """
     # Tokenize
@@ -635,14 +635,3 @@ async function translate() {
     }
 }
 ```
-
----
-
-**Submitted by**: Student  
-**Course**: NLP Applications - Semester 3  
-**Assignment**: Assignment 2 - Statistical Machine Translation  
-**Submission Date**: January 26, 2026
-
----
-
-*This report documents the complete implementation, design decisions, challenges faced, and learning outcomes from developing a Statistical Machine Translation application with BLEU evaluation capability.*
