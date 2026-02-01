@@ -20,3 +20,8 @@ ENV/
 .DS_Store
 Thumbs.db
 
+
+.npm-cache/
+node_modules/
+.npx/
+npm-debug.log*

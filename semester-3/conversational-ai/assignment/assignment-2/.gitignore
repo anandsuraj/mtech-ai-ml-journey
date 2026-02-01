@@ -14,7 +14,6 @@ build/
 data/*.pkl
 data/*.bin
 data/*.json
-reports/
 .cache/
 set_env.sh
 HF_TOKEN*.png
@@ -23,3 +22,7 @@ reports/*.json
 reports/*.csv
 .ipynb_checkpoints/
 HF_TOKEN=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
+.npm-cache/
+node_modules/
+.npx/
+npm-debug.log*
