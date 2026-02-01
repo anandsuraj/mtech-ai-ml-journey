@@ -17,9 +17,9 @@ data/*.json
 .cache/
 set_env.sh
 HF_TOKEN*.png
-reports/*.html
-reports/*.json
-reports/*.csv
+# reports/*.html
+# reports/*.json
+# reports/*.csv
 .ipynb_checkpoints/
 HF_TOKEN=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
 .npm-cache/
