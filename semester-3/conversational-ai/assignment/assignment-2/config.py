@@ -11,15 +11,28 @@ EVAL_DIR = os.path.join(BASE_DIR, 'evaluation')
 REPORTS_DIR = os.path.join(BASE_DIR, 'reports')
 UI_DIR = os.path.join(BASE_DIR, 'ui')
 
-# HuggingFace configuration
-HF_TOKEN = os.environ.get('HF_TOKEN', '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')
+# HuggingFace and Threading Configuration
+# Purge potentially expired tokens that cause 401 errors
+for key in ['HF_TOKEN', 'HUGGINGFACE_HUB_TOKEN', 'HUGGING_FACE_HUB_TOKEN']:
+    if key in os.environ:
+        # Check if it's the known expired token or just generally purge for this submission
+        # This ensures we use public access for the assignment
+        print(f"DEBUG: Removing {key} from environment to avoid 401 Unauthorized errors.")
+        del os.environ[key]
+
+# macOS and Threading Safety (Critical for Stable Execution on Mac)
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
+os.environ['OMP_NUM_THREADS'] = '1'
+os.environ['TOKENIZERS_PARALLELISM'] = 'false'
+
+HF_TOKEN = None # Force None for this project
 CACHE_DIR = os.path.join(BASE_DIR, '.cache', 'huggingface')
 
 # Dataset configuration
-FIXED_URLS_COUNT = 20 #200
-RANDOM_URLS_COUNT = 30 #300
-TOTAL_URLS_COUNT = 50 #500
-MIN_WORDS_PER_PAGE = 20 #200
+FIXED_URLS_COUNT = 200 #200
+RANDOM_URLS_COUNT = 300 #300
+TOTAL_URLS_COUNT = 500 #500
+MIN_WORDS_PER_PAGE = 200 #200
 
 # File paths
 FIXED_URLS_FILE = os.path.join(DATA_DIR, 'fixed_urls.json')

@@ -3,6 +3,8 @@
 # Deletes existing data and collects fresh data every run
 
 set -e  # Exit on error
+export KMP_DUPLICATE_LIB_OK=TRUE
+export TOKENIZERS_PARALLELISM=false
 
 echo "============================================================"
 echo "HYBRID RAG SYSTEM - COMPLETE PIPELINE"
@@ -41,7 +43,7 @@ rm -f data/faiss_index.bin
 rm -f data/faiss_index_metadata.pkl
 rm -f data/bm25_index.pkl
 rm -f data/questions.json
-echo "Cleanup complete!"
+echo "Cleanup complete!" 
 
 # Generate fixed URLs if not exists
 if [ ! -f "data/fixed_urls.json" ]; then

@@ -11,4 +11,8 @@ services:
       - ./reports:/app/reports
     environment:
       - FLASK_ENV=development
+      - OMP_NUM_THREADS=1
+      - KMP_DUPLICATE_LIB_OK=TRUE
+      - TOKENIZERS_PARALLELISM=false
+      - HF_HUB_OFFLINE=0
     command: python ui/app.py

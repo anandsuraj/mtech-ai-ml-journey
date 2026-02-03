@@ -9,6 +9,10 @@ import pickle
 # Fix imports - add parent directory to path
 sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
+# macOS Threading Safety
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'
+os.environ['TOKENIZERS_PARALLELISM'] = 'false'
+
 import config
 from src.embeddings import DenseRetriever
 from src.sparse_retrieval import SparseRetriever

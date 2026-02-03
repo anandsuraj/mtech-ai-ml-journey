@@ -74,7 +74,6 @@ python run_evaluation.py
 # Outputs:
 #   - reports/results.json (detailed results)
 #   - reports/results.csv (CSV format)
-#   - reports/extended_results.json (with ablation & error analysis)
 #   - reports/evaluation_report.html (complete HTML report)
 #   - reports/*.png (visualizations)
 # Time: ~20-30 minutes for 100 questions

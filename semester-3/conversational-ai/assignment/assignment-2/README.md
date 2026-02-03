@@ -13,6 +13,17 @@ The system works in 5 stages:
 4. **Retrieval** - Combines both search methods using Reciprocal Rank Fusion (RRF)
 5. **Generation** - Uses Flan-T5 model to generate answers from retrieved chunks
 
+### Library Choices & Rationale
+
+| Component | Library/Tool | Why we chose it |
+|-----------|--------------|-----------------|
+| **Vector Database** | `faiss-cpu` | Lightweight and efficient for local execution. Unlike client-server DBs (Chroma/Pinecone), FAISS runs directly in-process, making it ideal for a self-contained assignment submission without external dependencies. |
+| **Embeddings** | `all-MiniLM-L6-v2` | Best-in-class speed/performance trade-off for CPU inference. Generates 384-dimensional vectors significantly faster than larger models while maintaining high semantic accuracy. |
+| **Sparse Retrieval** | `rank_bm25` | Validated implementation of the BM25 algorithm. Provides a robust, stateless keyword search baseline without the overhead of setting up ElasticSearch or Solr. |
+| **LLM** | `Flan-T5-base` | A true instruction-tuned open-source model. Selected because it provides decent reasoning capabilities on consumer hardware (CPU-friendly) without requiring paid API keys (like OpenAI). |
+| **Web Framework** | `Flask` | Minimalist and production-ready. Allows us to serve the RAG pipeline via REST endpoints with minimal boilerplate code. |
+| **Metrics** | `bert-score` | Uses contextual embeddings to evaluate answer quality, which is more robust than n-gram overlapping metrics (BLEU/ROUGE) for open-ended QA. |
+
 ## Quick Start
 
 ### Option 1: Run Everything (Recommended)
@@ -125,6 +136,15 @@ RRF_score = 1/(k + rank_dense) + 1/(k + rank_sparse)
 ```
 
 This gives better results than either method alone.
+
+
+### Dataset Strategy
+
+To ensure both **reproducibility** (for consistent grading) and **robustness** (against unseen data), the system uses a unique hybrid dataset approach:
+- **200 Fixed URLs**: A curated list of diverse topics stored in `data/fixed_urls.json`. These provide a stable baseline for development and debugging.
+- **300 Random URLs**: Fetched freshly from Wikipedia's random API on each pipeline run. This forces the system to handle new domains and prevents overfitting to a static corpus.
+
+**Total Corpus:** 500 Wikipedia Articles (~4M tokens).
 
 ### Answer Generation
 

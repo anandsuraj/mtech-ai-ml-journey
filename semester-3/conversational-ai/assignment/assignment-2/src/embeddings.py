@@ -10,13 +10,16 @@ PROJECT_ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, PROJECT_ROOT)
 import config
 
-# CRITICAL: Set HuggingFace cache to local directory BEFORE transformer imports
+# CRITICAL: Set HuggingFace cache and threading safety for macOS
 os.makedirs(config.CACHE_DIR, exist_ok=True)
-os.environ['HF_HOME'] = config.CACHE_DIR  # Only use HF_HOME (TRANSFORMERS_CACHE is deprecated)
-if config.HF_TOKEN:
-    os.environ['HF_TOKEN'] = config.HF_TOKEN
-
+os.environ['HF_HOME'] = config.CACHE_DIR
+os.environ['KMP_DUPLICATE_LIB_OK'] = 'TRUE'  # Prevent OpenMP runtime conflict on macOS
+os.environ['TOKENIZERS_PARALLELISM'] = 'false'  # Avoid deadlock during initialization
 # Now safe to import transformer libraries
+if 'HF_TOKEN' in os.environ:
+    print(f"DEBUG: Found HF_TOKEN in environment: {os.environ['HF_TOKEN'][:5]}...")
+else:
+    print("DEBUG: No HF_TOKEN found in environment (Good for public access)")
 import json
 import pickle
 import numpy as np
@@ -36,7 +39,8 @@ class DenseRetriever:
             model_name: Name of the sentence transformer model
         """
         print(f"Loading embedding model: {model_name}")
-        self.model = SentenceTransformer(model_name)
+        # Force token=False to access public model without auth (avoids expired token errors)
+        self.model = SentenceTransformer(model_name, token=False)
         self.index = None
         self.chunks = None
         self.embeddings = None

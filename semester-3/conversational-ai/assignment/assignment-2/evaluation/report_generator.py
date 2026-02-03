@@ -197,6 +197,12 @@ class ReportGenerator:
             <p><strong>Generated:</strong> {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}</p>
             <p><strong>Total Questions Evaluated:</strong> {metrics['total_questions']}</p>
             
+            <h2>System Architecture</h2>
+            <div style="text-align: center; margin: 20px 0;">
+                <img src="architecture_diagram.png" alt="System Architecture Diagram" style="max-width: 90%; border: 1px solid #ddd; padding: 10px; background: white;">
+                <p><em>Figure 1: Hybrid RAG System Architecture Dataflow</em></p>
+            </div>
+            
             <h2> Overall Performance Summary</h2>
             <div class="metric-box">
                 <div class="metric">
@@ -379,14 +385,24 @@ class ReportGenerator:
         
         with open(output_path, 'w', encoding='utf-8') as f:
             f.write(html)
-        
-        print(f"HTML report generated: {output_path}")
-    
     def generate_reports(self, results_path: str):
         """Generate all reports from results file."""
+        import shutil
         # Load results
         with open(results_path, 'r', encoding='utf-8') as f:
             results = json.load(f)
+            
+        # Copy architecture diagram
+        source_diagram = os.path.join(os.path.dirname(os.path.dirname(os.path.abspath(__file__))), 'docs', 'system_dataflow.png')
+        target_diagram = os.path.join(config.REPORTS_DIR, 'architecture_diagram.png')
+        try:
+            if os.path.exists(source_diagram):
+                shutil.copy2(source_diagram, target_diagram)
+                print(f"Copied architecture diagram to {target_diagram}")
+            else:
+                print(f"Warning: Architecture diagram not found at {source_diagram}")
+        except Exception as e:
+            print(f"Error copying architecture diagram: {e}")
         
         # Create visualizations
         print("Creating visualizations...")

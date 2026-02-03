@@ -29,8 +29,8 @@ class ResponseGenerator:
         # Load the language model for generation        
         print(f"Loading LLM model: {model_name}")
         self.model_name = model_name
-        self.tokenizer = AutoTokenizer.from_pretrained(model_name)
-        self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name)
+        self.tokenizer = AutoTokenizer.from_pretrained(model_name, token=False)
+        self.model = AutoModelForSeq2SeqLM.from_pretrained(model_name, token=False)
         
         # Check if GPU is available and use it
         self.device = "cuda" if torch.cuda.is_available() else "cpu"
