@@ -2,33 +2,33 @@
 
 ## Part 1: Hybrid RAG System (10 Marks)
 
-### 1.1 Dense Vector Retrieval ✓
+### 1.1 Dense Vector Retrieval 
 -  Sentence embedding model (all-MiniLM-L6-v2)
 -  FAISS vector index
 -  Cosine similarity search
 -  Top-K retrieval
 - **File**: `src/embeddings.py`
 
-### 1.2 Sparse Keyword Retrieval ✓
+### 1.2 Sparse Keyword Retrieval 
 -  BM25 algorithm implemented
 -  Index built over chunks
 -  Top-K results retrieval
 - **File**: `src/sparse_retrieval.py`
 
-### 1.3 Reciprocal Rank Fusion (RRF) ✓
+### 1.3 Reciprocal Rank Fusion (RRF) 
 -  RRF formula: score(d) = Σ 1/(k + rank_i(d))
 -  k = 60 as specified
 -  Combines dense and sparse results
 -  Selects top-N chunks by RRF score
 - **File**: `src/hybrid_retrieval.py`
 
-### 1.4 Response Generation ✓
+### 1.4 Response Generation 
 -  Open-source LLM (Flan-T5-base)
 -  Context concatenation with query
 -  Answer generation within context limits
 - **File**: `src/llm_generation.py`
 
-### 1.5 User Interface ✓
+### 1.5 User Interface 
 -  Built with Flask
 -  Displays user query input
 -  Shows generated answer
@@ -39,7 +39,7 @@
 
 ## Part 2: Automated Evaluation (10 Marks)
 
-### 2.1 Question Generation ✓
+### 2.1 Question Generation 
 -  100 Q&A pairs generated
 -  Diverse question types (factual, comparative, inferential, multi-hop)
 -  Stored with ground truth
@@ -49,13 +49,13 @@
 
 ### 2.2 Evaluation Metrics
 
-#### 2.2.1 Mandatory Metric (2 Marks) ✓
+#### 2.2.1 Mandatory Metric (2 Marks) 
 -  MRR calculated at URL level
 -  Measures rank of first correct Wikipedia URL
 -  Average of 1/rank across all questions
 - **File**: `evaluation/metrics.py`
 
-#### 2.2.2 Custom Metrics (4 Marks) ✓
+#### 2.2.2 Custom Metrics (4 Marks) 
 -  Selected 2 additional metrics:
   - **NDCG@K**: Normalized Discounted Cumulative Gain
   - **BERTScore**: Semantic similarity evaluation
@@ -64,13 +64,13 @@
 -  Interpretation guidelines included
 - **File**: `evaluation/metrics.py`, `evaluation/report_generator.py`
 
-### 2.3 Innovative Evaluation (4 Marks) ✓
+### 2.3 Innovative Evaluation (4 Marks) 
 -  Ablation Studies: Dense-only, sparse-only, hybrid comparison
 -  Error Analysis: Categorize failures by question type
 -  Visualizations: Performance charts and heatmaps
 - **File**: `evaluation/innovative_eval.py`
 
-### 2.4 Automated Pipeline ✓
+### 2.4 Automated Pipeline 
 -  Single-command execution
 -  Loads questions
 -  Runs RAG system
@@ -79,7 +79,7 @@
 -  Structured output (CSV/JSON)
 - **File**: `run_evaluation.py`, `evaluation/pipeline.py`
 
-### 2.5 Evaluation Report ✓
+### 2.5 Evaluation Report 
 -  Overall performance summary
 -  MRR and custom metrics averages
 -  Detailed justification for custom metrics
@@ -88,7 +88,7 @@
 -  Error analysis with examples
 - **File**: `evaluation/report_generator.py`
 
-## Dataset Requirements ✓
+## Dataset Requirements 
 
 ### Wikipedia URL Collection
 -  200 fixed URLs (diverse topics, minimum 200 words)
@@ -97,20 +97,20 @@
 -  Total: 500 URLs (200 fixed + 300 random)
 - **Files**: `scripts/generate_fixed_urls.py`, `src/data_collection.py`
 
-### Text Processing ✓
+### Text Processing 
 -  Chunking: 200-400 tokens with 50-token overlap
 -  Metadata: URL, title, unique chunk IDs
 -  Clean text extraction
 - **File**: `src/preprocessing.py`
 
-## Additional Requirements ✓
+## Additional Requirements 
 
 ### Documentation
 -  README.md with setup instructions
 -  Code comments (natural, student-style)
 -  Configuration centralized (`config.py`)
 
-### Ease of Use ✓
+### Ease of Use 
 -  Docker support for team deployment
 -  Single script to run entire pipeline (`run.sh`)
 -  Clear directory structure
@@ -118,7 +118,7 @@
 
 ## Verification Status
 
-**All assignment requirements met!** ✓
+**All assignment requirements met!** 
 
 ### Key Files Summary:
 1. **Core System**: `src/*.py` (6 files)

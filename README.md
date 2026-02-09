@@ -1,182 +1,157 @@
-# 🎓 M.Tech AI/ML Academic Portfolio
+# M.Tech AI/ML Academic Portfolio
 **BITS Pilani M.Tech Program - Comprehensive AI/ML Journey**
 
 [![Python](https://img.shields.io/badge/Python-3.8+-blue.svg)](https://python.org)
 [![TensorFlow](https://img.shields.io/badge/TensorFlow-2.x-orange.svg)](https://tensorflow.org)
 [![PyTorch](https://img.shields.io/badge/PyTorch-Latest-red.svg)](https://pytorch.org)
-[![Jupyter](https://img.shields.io/badge/Jupyter-Notebooks-orange.svg)](https://jupyter.org)
+[![Docker](https://img.shields.io/badge/Docker-Enabled-blue.svg)](https://docker.com)
+[![Kubernetes](https://img.shields.io/badge/Kubernetes-Ready-blue.svg)](https://kubernetes.io)
 
-> *A comprehensive collection of AI/ML projects, assignments, and research implementations from my M.Tech program at BITS Pilani. This repository demonstrates practical applications across Deep Learning, Reinforcement Learning, Natural Language Processing, and Game AI.*
----
-
-## 📋 Table of Contents
-- [🎯 Overview](#-overview)
-- [🏗️ Repository Structure](#️-repository-structure)
-- [🧠 Core Domains](#-core-domains)
-- [🚀 Key Projects](#-key-projects)
-- [📊 Technical Skills Demonstrated](#-technical-skills-demonstrated)
-- [🛠️ Technologies Used](#️-technologies-used)
-- [📈 Academic Progress](#-academic-progress)
-- [🔧 Setup & Usage](#-setup--usage)
-- [📞 Contact](#-contact)
+> *A comprehensive collection of AI/ML projects, assignments, and research implementations from my M.Tech program at BITS Pilani. This repository demonstrates practical applications across Deep Learning, Reinforcement Learning, Natural Language Processing, MLOps, and Generative AI.*
 
 ---
 
-## 🎯 Overview
-
-This repository showcases my academic journey through advanced AI/ML concepts, featuring:
-- **Hands-on implementations** of cutting-edge algorithms
-- **Research-oriented projects** with real-world applications
-- **Comprehensive documentation** for concept reinforcement
-- **Industry-ready code** following best practices
-
-**Target Audience**: Recruiters, fellow researchers, AI/ML enthusiasts, and future reference for concept recall.
-
-### 🌟 What Makes This Repository Special
-- **Real-world Applications**: Projects solving actual problems in healthcare, finance, and autonomous systems
-- **Academic Rigor**: Comprehensive analysis, experimentation, and documentation
-- **Continuous Growth**: Regular updates with new AI/ML projects and implementations
-- **Open Source**: All code available for learning and collaboration
+## Table of Contents
+- [Overview](#overview)
+- [Repository Structure](#repository-structure)
+- [Projects Showcase](#projects-showcase)
+    - [Semester 3: Advanced Systems & MLOps](#semester-3-advanced-systems--mlops)
+    - [Semester 2: Deep Learning & NLP](#semester-2-deep-learning--nlp)
+    - [Semester 1: Foundations & Game AI](#semester-1-foundations--game-ai)
+- [Technologies Used](#technologies-used)
+- [Academic Progress](#academic-progress)
+- [Setup & Usage](#setup--usage)
+- [Contact](#contact)
 
 ---
 
-## 🏗️ Repository Structure
+## Overview
+
+This repository showcases my academic journey through advanced AI/ML concepts, transitioning from foundational algorithms to production-ready MLOps pipelines and Generative AI systems.
+
+**Key Highlights:**
+- **End-to-End MLOps**: Full lifecycle management using Docker, Kubernetes, and CI/CD pipelines.
+- **Generative AI**: Implementation of RAG systems and LLM integration.
+- **Advanced NLP**: From statistical translation to modern transformer-based architectures.
+- **Reinforcement Learning**: Solving complex environments with Actor-Critic and DQN agents.
+
+---
+
+## Repository Structure
 
 ```
-📁 academic-ai-ml-portfolio/
-├── 📁 semester-1/                    # Foundation & Core Concepts
-│   ├── 📁 game-ai-minimax/          # AI Game Theory Implementation
-│   └── 📁 python-fundamentals/      # Programming Foundations
-├── 📁 semester-2/                    # Advanced AI/ML Applications
-│   ├── 📁 deep-neural-networks/     # DNN Architecture & Optimization
-│   ├── 📁 deep-reinforcement-learning/ # DRL Algorithms & Applications
-│   └── 📁 natural-language-processing/ # NLP & Sentiment Analysis
-└── 📁 environments/                  # Virtual Environment Configs
+academic-ai-ml-portfolio/
+├── semester-3/                       # Advanced Systems, GenAI & MLOps
+│   ├── conversational-ai/           # Hybrid RAG & LLM Applications
+│   ├── mlops/                       # Production ML Pipelines (Docker/K8s)
+│   └── nlp-applications/            # SMT & Web-based NLP Tools
+├── semester-2/                       # Deep Learning & Core NLP
+│   ├── deep-neural-networks/        # CNN/DNN Architectures
+│   ├── deep-reinforcement-learning/ # RL Algorithms (DQN, PPO)
+│   └── natural-language-processing/ # Financial Sentiment Analysis
+├── semester-1/                       # Foundations
+│   └── game-ai-minimax/             # Strategic Game AI
+└── environments/                     # Configuration & Setup
 ```
 
 ---
 
-## 🧠 Core Domains
+## Projects Showcase
 
-### 🎮 **Game AI & Search Algorithms**
-- **Minimax Algorithm** implementation for strategic game play
-- **Alpha-Beta Pruning** optimization techniques
-- **Game Theory** applications in crossword puzzle solving
+### Semester 3: Advanced Systems & MLOps
 
-### 🧠 **Deep Neural Networks**
-- **Architecture Design**: Multi-layer perceptrons with varying depths
-- **Regularization Techniques**: Dropout, L2 regularization
-- **Optimization**: Comparative analysis of network configurations
-- **Performance Evaluation**: Comprehensive model comparison
+#### 1. **Hybrid RAG Question Answering System**
+**Domain**: Generative AI | **Location**: `semester-3/conversational-ai/assignment/assignment-2`
+- **Description**: A sophisticated RAG (Retrieval-Augmented Generation) system that combines dense (FAISS) and sparse (BM25) retrieval to answer questions from a dynamic Wikipedia corpus. Features Reciprocal Rank Fusion (RRF) for optimal context retrieval.
+- **Tech Stack**:
+    - **LLM**: Flan-T5-base (Instruction Tuned)
+    - **Vector DB**: FAISS (Dense Retrieval)
+    - **Search**: Rank-BM25 (Sparse Retrieval)
+    - **Backend**: Flask
 
-### 🎯 **Deep Reinforcement Learning**
-- **Actor-Critic Methods** for medical treatment optimization
-- **DQN/DDQN** for autonomous systems control
-- **Policy Gradient Methods** for real-world applications
-- **Multi-Agent Systems** in healthcare and surveillance
+#### 2. **Heart Disease Prediction MLOps Pipeline**
+**Domain**: MLOps & Healthcare | **Location**: `semester-3/mlops/assignment1/mlops-heart-disease`
+- **Description**: A production-ready Machine Learning pipeline for heart disease prediction, demonstrating end-to-end MLOps practices. Includes containerization, orchestration, and automated testing.
+- **Tech Stack**:
+    - **Infrastructure**: Docker, Kubernetes (K8s)
+    - **ML Framework**: Scikit-learn
+    - **Tools**: PyTest, CI/CD workflows
 
-### 📝 **Natural Language Processing**
-- **Sentiment Analysis** on financial text data
-- **Word Embeddings**: Skip-gram vs CBOW comparison
-- **Text Preprocessing**: Advanced tokenization and normalization
-- **POS Tagging**: Hidden Markov Model implementation
+#### 3. **Statistical Machine Translation (SMT) System**
+**Domain**: NLP Applications | **Location**: `semester-3/nlp-applications/assignment/assignment2`
+- **Description**: A web-based translation workbench supporting multiple languages with integrated BLEU score evaluation. Allows comparison of translations against reference texts with detailed n-gram precision analysis.
+- **Tech Stack**:
+    - **Core**: Python, Flask
+    - **Evaluation**: BLEU (SacreBLEU), N-gram analysis
+    - **API**: Google Translate API
 
----
-
-## 🚀 Key Projects
-
-### 1. 🏥 **Medical AI: Sepsis Treatment Optimization**
-**Location**: `semester-2/deep-reinforcement-learning/medical-ai-sepsis/`
-- **Objective**: Optimize sepsis treatment using Actor-Critic RL
-- **Impact**: Potential to improve patient outcomes in ICU settings
-- **Technologies**: PyTorch, OpenAI Gym, Medical simulation environments
-
-### 2. 🚁 **Autonomous Drone Battery Management**
-**Location**: `semester-2/deep-reinforcement-learning/drone-surveillance/`
-- **Objective**: Intelligent battery management for urban surveillance drones
-- **Impact**: Extended operational time for security applications
-- **Technologies**: DQN, DDQN, Custom environment simulation
-
-### 3. 💰 **Financial Sentiment Analysis System**
-**Location**: `semester-2/natural-language-processing/financial-sentiment/`
-- **Objective**: Real-time sentiment analysis of financial news/reports
-- **Impact**: Trading decision support and market sentiment tracking
-- **Technologies**: NLTK, Word2Vec, Scikit-learn, Pandas
-
-### 4. 🎯 **Strategic Game AI with Minimax**
-**Location**: `semester-1/game-ai-minimax/`
-- **Objective**: Intelligent crossword puzzle game with AI opponent
-- **Impact**: Demonstrates search algorithms and game theory
-- **Technologies**: Pure Python, Algorithm optimization
+#### 4. **Intelligent Spell Checker**
+**Domain**: NLP Applications | **Location**: `semester-3/nlp-applications/spell-checker-web-app-flask`
+- **Description**: A Flask-based web application for real-time spell checking. Features a history tracking system to learn from past errors and provides context-aware suggestions.
+- **Tech Stack**: Flask, PySpellChecker, JSON Storage
 
 ---
 
-## 📊 Technical Skills Demonstrated
+### Semester 2: Deep Learning & NLP
 
-### **Machine Learning & AI**
-- Deep Neural Network Architecture Design
-- Reinforcement Learning (Actor-Critic, DQN, DDQN)
-- Natural Language Processing & Text Analytics
-- Game Theory & Search Algorithms
-- Feature Engineering & Model Optimization
+#### 5. **Financial Sentiment Analysis Engine**
+**Domain**: NLP | **Location**: `semester-2/natural-language-processing/assignment1`
+- **Description**: An NLP system designed to analyze financial text data. It compares Skip-gram and CBOW word embedding models to classify market sentiment, aiding in automated trading decisions.
+- **Tech Stack**: NLTK, Gensim (Word2Vec), Scikit-learn, Pandas
 
-### **Programming & Tools**
-- **Languages**: Python (Advanced), SQL
-- **ML Frameworks**: TensorFlow, PyTorch, Scikit-learn
-- **Data Science**: Pandas, NumPy, Matplotlib, Seaborn
-- **NLP**: NLTK, Gensim, Word2Vec
-- **Development**: Jupyter Notebooks, Git, Virtual Environments
+#### 6. **Sepsis Treatment Optimization (RL)**
+**Domain**: Deep Reinforcement Learning | **Location**: `semester-2/deep-reinforcement-learning/assignment1`
+- **Description**: Application of Actor-Critic RL algorithms to optimize sepsis treatment strategies in ICU settings. Also includes a **Drone Battery Management** system using DQN/DDQN for autonomous surveillance.
+- **Tech Stack**: PyTorch, OpenAI Gym, Stable-Baselines3
 
-### **Research & Analysis**
-- Experimental Design & Hypothesis Testing
-- Performance Benchmarking & Comparative Analysis
-- Technical Documentation & Research Writing
-- Data Visualization & Insight Communication
+#### 7. **DNN Architecture Optimization**
+**Domain**: Deep Learning | **Location**: `semester-2/deep-neural-networks/assignment1`
+- **Description**: A comprehensive study of Neural Network architectures on the MNIST dataset. implementation and comparative analysis of regularization techniques (Dropout, L2) and depth variations.
+- **Tech Stack**: TensorFlow/Keras, NumPy, Matplotlib
 
 ---
 
-## 🛠️ Technologies Used
+### Semester 1: Foundations & Game AI
+
+#### 8. **Strategic Crossword AI**
+**Domain**: Game Theory | **Location**: `semester-1/game-ai-minimax`
+- **Description**: An AI agent capable of playing a strategic crossword game. Implements Minimax algorithm with Alpha-Beta pruning to make optimal moves against human or AI opponents.
+- **Tech Stack**: Python, Search Algorithms, Game Theory
+
+---
+
+## Technologies Used
 
 | Domain | Technologies |
 |--------|-------------|
+| **Generative AI** | Transformers (Hugging Face), RAG, FAISS, LangChain concepts |
+| **MLOps** | Docker, Kubernetes, CI/CD, PyTest |
 | **Deep Learning** | TensorFlow, Keras, PyTorch |
-| **Reinforcement Learning** | OpenAI Gym, Stable-Baselines3 |
-| **NLP** | NLTK, Gensim, Word2Vec, TextBlob |
-| **Data Science** | Pandas, NumPy, Scikit-learn |
-| **Visualization** | Matplotlib, Seaborn, WordCloud |
-| **Development** | Python 3.8+, Jupyter, Git |
+| **NLP** | NLTK, Spacy, Gensim, BLEU, Word2Vec |
+| **Reinforcement Learning** | OpenAI Gym, Stable-Baselines3, Ray RLlib |
+| **Backend/Web** | Flask, Python, JSON |
+| **Data Science** | Pandas, NumPy, Scikit-learn, Matplotlib |
 
 ---
 
-## 📈 Academic Progress
+## Academic Progress
 
-### **Semester 1**: Foundation Building
-- ✅ Algorithm Design & Analysis
-- ✅ Python Programming Mastery
-- ✅ Game AI Implementation
+- **Semester 1**: Foundations (Algorithms, Python, Game AI)
+- **Semester 2**: Core AI (Deep Learning, RL, NLP)
+- **Semester 3**: Advanced Systems (Generative AI, MLOps, Applied NLP)
+- **Semester 4**: Dissertation & Research (Upcoming)
 
-### **Semester 2**: Advanced Applications
-- ✅ Deep Neural Network Architectures
-- ✅ Reinforcement Learning Applications
-- ✅ Natural Language Processing
-- ✅ Real-world Problem Solving
-
-### **Ongoing & Future Semesters**: Specialization & Research
-- 🔄 **Advanced Computer Vision** (In Progress)
-- 🔄 **MLOps & Production Systems** (Planned)
-- 🔄 **Research Project** (Topic Selection Phase)
 ---
 
-## 🔧 Setup & Usage
+## Setup & Usage
 
 ### Prerequisites
 ```bash
-# Python 3.8 or higher
+# Python 3.8+
 python --version
 
-# Create virtual environment
-python -m venv ai-ml-env
-source ai-ml-env/bin/activate  # On Windows: ai-ml-env\Scripts\activate
+# Docker (for MLOps projects)
+docker --version
 ```
 
 ### Installation
@@ -185,105 +160,27 @@ source ai-ml-env/bin/activate  # On Windows: ai-ml-env\Scripts\activate
 git clone https://github.com/anandsuraj/mtech-ai-ml-journey.git
 cd mtech-ai-ml-journey
 
-# Install dependencies
-pip install -r requirements.txt
-
-# Launch Jupyter for notebooks
-jupyter notebook
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate
 ```
 
-### Quick Start
+### Running a Project (Example: Hybrid RAG)
 ```bash
-# Run specific projects
-cd semester-2/natural-language-processing/financial-sentiment/
-python financial_sentiment_analysis.py
-
-cd semester-1/game-ai-minimax/
-python crossword_game.py
+cd semester-3/conversational-ai/assignment/assignment-2
+pip install -r requirements.txt
+./run.sh
 ```
 
 ---
 
-## 🎯 Future Projects & Enhancements
-
-### 🚀 Upcoming AI/ML Projects
-- [ ] **Computer Vision**: Image classification, object detection, and medical imaging
-- [ ] **Generative AI**: GANs, VAEs, and transformer-based models
-- [ ] **MLOps Pipeline**: End-to-end ML deployment and monitoring
-- [ ] **Time Series Analysis**: Financial forecasting and anomaly detection
-- [ ] **Recommendation Systems**: Collaborative filtering and content-based systems
-- [ ] **Edge AI**: Mobile and IoT deployment optimization
-- [ ] **Explainable AI**: Model interpretability and fairness analysis
-
-### 🔬 Research Areas of Interest
-- [ ] **Federated Learning**: Privacy-preserving distributed ML
-- [ ] **Neural Architecture Search**: Automated model design
-- [ ] **Multi-modal Learning**: Vision + Language understanding
-- [ ] **Quantum Machine Learning**: Quantum computing applications
-- [ ] **AI for Social Good**: Healthcare, education, and sustainability
-
-### 🏭 Industry Applications
-- [ ] **FinTech**: Algorithmic trading and risk assessment
-- [ ] **HealthTech**: Medical diagnosis and drug discovery
-- [ ] **AutoTech**: Autonomous vehicles and smart transportation
-- [ ] **EdTech**: Personalized learning and assessment systems
-
-*This repository is continuously evolving with new projects and implementations. Star ⭐ and watch 👀 for updates!*
-
----
-
-## 📞 Contact & Connect
+## Contact
 
 **Anand Suraj**  
-M.Tech Student, BITS Pilani  
-🎓 Specialization: Artificial Intelligence & Machine Learning  
+*M.Tech AI/ML Candidate, BITS Pilani*  
 
-� G**Email**: [surya13493@gmail.com](mailto:surya13493@gmail.com)  
-🐙 **GitHub**: [github.com/anandsuraj](https://github.com/anandsuraj)  
-💼 **LinkedIn**: [Connect with me](https://linkedin.com/in/anandsuraj)  
-🌐 **Portfolio**: [View all projects](https://github.com/anandsuraj?tab=repositories)
-
-### 🤝 Collaboration & Opportunities
-- Open to **research collaborations** in AI/ML
-- Available for **project partnerships**
-- Interested in **mentoring** junior developers
-- Always excited to discuss **innovative AI applications**
-
-*Feel free to reach out for discussions on AI/ML, potential collaborations, or just to connect!*
+[surya13493@gmail.com](mailto:surya13493@gmail.com)  
+[LinkedIn](https://linkedin.com/in/anandsuraj) | [GitHub](https://github.com/anandsuraj)
 
 ---
-
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
----
-
-## 🤝 Contributing & Community
-
-### 🌟 How to Engage
-- **⭐ Star** this repository if you find it helpful
-- **🍴 Fork** to experiment with the code
-- **📝 Issues** for questions, suggestions, or bug reports
-- **🔄 Pull Requests** for improvements and contributions
-- **💬 Discussions** for AI/ML topics and collaboration ideas
-
-###  For Students & Researchers
-- Use this repository as a **learning resource**
-- **Cite** this work in your academic projects (see LICENSE)
-- **Collaborate** on research ideas and implementations
-- **Share** your own AI/ML projects for community learning
----
-
-## 🙏 Acknowledgments
-
-- **BITS Pilani** faculty for guidance and mentorship
-- **Open source community** for tools and libraries
-- **Research papers** and academic resources referenced in implementations
-- **GitHub community** for feedback and collaboration
-- **Fellow students** for peer learning and project discussions
-
----
-
-*⭐ If you find this repository helpful for your AI/ML journey, please consider giving it a star!*  
-*🔔 Watch this repository to stay updated with new projects and implementations!*
+*Created as part of the M.Tech AI/ML academic curriculum.*
