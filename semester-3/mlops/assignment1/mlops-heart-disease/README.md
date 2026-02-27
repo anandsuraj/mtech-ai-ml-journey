@@ -28,6 +28,8 @@ To fully understand the scope and implementation of this project, refer to the f
 
 ## Project Architecture & Workflows
 
+![Architecture Diagram](screenshots/architecture_diagram.jpeg)
+
 A real-world ML application requires robust tracking and dependable infrastructure. This project achieves this through:
 - **Experiment Tracking:** Utilizing MLflow to centrally track parameters, model metrics, and artifacts across multiple training runs.
 - **Microservice Architecture:** Serving the trained models via a highly concurrent FastAPI application.
