@@ -95,7 +95,7 @@ academic-ai-ml-portfolio/
     - **Tools**: PyTest, CI/CD workflows
 
 #### 6. **Statistical Machine Translation (SMT) System**
-**Domain**: NLP Applications | **Location**: `semester-3/nlp-applications/assignment/assignment2`
+**Domain**: NLP Applications | **Location**: [https://github.com/anandsuraj/nlp-statistical_machine_translation_with_bLEU_evaluation](https://github.com/anandsuraj/nlp-statistical_machine_translation_with_bLEU_evaluation)
 - **Description**: A web-based translation workbench supporting multiple languages with integrated BLEU score evaluation. Allows comparison of translations against reference texts with detailed n-gram precision analysis.
 - **Tech Stack**:
     - **Core**: Python, Flask
