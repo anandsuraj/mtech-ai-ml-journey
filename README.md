@@ -31,6 +31,7 @@ This repository showcases my academic journey through advanced AI/ML concepts, t
 
 **Key Highlights:**
 - **End-to-End MLOps**: Full lifecycle management using Docker, Kubernetes, and CI/CD pipelines.
+- **Computer Vision**: Classical feature engineering and cross-modal attention for semantic segmentation.
 - **Generative AI**: Implementation of RAG systems and LLM integration.
 - **Advanced NLP**: From statistical translation to modern transformer-based architectures.
 - **Reinforcement Learning**: Solving complex environments with Actor-Critic and DQN agents.
@@ -142,6 +143,7 @@ academic-ai-ml-portfolio/
 |--------|-------------|
 | **Generative AI** | Transformers (Hugging Face), RAG, FAISS, LangChain concepts |
 | **MLOps** | MLflow, DVC, Docker, Kubernetes, CI/CD, PyTest, Prometheus |
+| **Computer Vision** | OpenCV, Scikit-Image, Faster R-CNN, Segmentation Masks |
 | **Deep Learning** | TensorFlow, Keras, PyTorch |
 | **NLP** | NLTK, Spacy, Gensim, BLEU, Word2Vec |
 | **Reinforcement Learning** | OpenAI Gym, Stable-Baselines3, Ray RLlib |
@@ -154,7 +156,7 @@ academic-ai-ml-portfolio/
 
 - **Semester 1**: Foundations (Algorithms, Python, Game AI)
 - **Semester 2**: Core AI (Deep Learning, RL, NLP)
-- **Semester 3**: Advanced Systems (Generative AI, MLOps, Applied NLP)
+- **Semester 3**: Advanced Systems (Generative AI, MLOps, Computer Vision, Applied NLP)
 - **Semester 4**: Dissertation & Research (Upcoming)
 
 ---
