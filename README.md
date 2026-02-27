@@ -78,7 +78,7 @@ academic-ai-ml-portfolio/
 - **Tech Stack**: PyTorch, Faster R-CNN, Semantic Segmentation, Attention Mechanisms
 
 #### 4. **Hybrid RAG Question Answering System**
-**Domain**: Generative AI | **Location**: `semester-3/conversational-ai/assignment/assignment-2`
+**Domain**: Generative AI | **Location**: [https://github.com/anandsuraj/hybrid-rag-system-with-automated-evaluation](https://github.com/anandsuraj/hybrid-rag-system-with-automated-evaluation)
 - **Description**: A sophisticated RAG (Retrieval-Augmented Generation) system that combines dense (FAISS) and sparse (BM25) retrieval to answer questions from a dynamic Wikipedia corpus. Features Reciprocal Rank Fusion (RRF) for optimal context retrieval.
 - **Tech Stack**:
     - **LLM**: Flan-T5-base (Instruction Tuned)
