@@ -1,0 +1,36 @@
+# Python
+__pycache__/
+*.pyc
+venv/
+
+# Data
+data/raw/
+
+# MLflow
+mlruns/
+
+# DVC
+.dvc/cache/
+
+# Ignore IntelliJ IDEA project files
+.idea/
+*.iml
+
+# Ignore Python virtual environments
+ENV/
+env/
+.venv/
+
+# Ignore mlflow DB files
+mlflow.db
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Models
+models/**/model.h5
+
+.dvc/*.json
+*.json
+/data

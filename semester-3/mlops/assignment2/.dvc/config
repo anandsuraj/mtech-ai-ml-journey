@@ -1,0 +1,8 @@
+[core]
+    remote = myremote
+['remote "storage"']
+    url = gdrive://1YtmChnMxhDgP2GBf0bRpR3LMK0Ku0Itn
+    gdrive_use_service_account = false
+['remote "myremote"']
+    url = s3://binary-image-mlops-dvc
+    region = ap-south-1

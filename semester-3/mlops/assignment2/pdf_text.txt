@@ -1,0 +1,342 @@
+MLOps Assignment 2 
+Binary Image Classification (Cats vs Dogs)  
+Group Details:    
+Group Number: 3 
+S. No Name BITS ID Contribution 
+1 Karan Sharma 2024AB05145 100% 
+2 Selva Pandian 2023AC05005 100% 
+3 Neerumalla Kavitha 2024AA05879 100% 
+4 Suraj Anand 2024AA05731 100% 
+5 Shikhar Nigam 2024AA05691 100% 
+1. Project Overview 
+Objective: Design and implement an end-to-end MLOps pipeline for a binary image classification 
+system (Cats vs Dogs) for a pet adoption platform. 
+Scope: 
+• Data & code versioning (Git + DVC) 
+• Model development and experiment tracking 
+• FastAPI inference service 
+• Containerization using Docker 
+• CI pipeline with GitHub Actions 
+• CD / deployment workflow 
+• Monitoring, logging, and performance tracking 
+Use Case: 
+Users upload an image; the system predicts whether the image contains a cat or a dog and returns a 
+confidence score.  
+2. Dataset : 
+ 
+• Cats vs Dogs dataset (Kaggle) 
+• Images preprocessed to 224x224 RGB 
+• Train/Validation/Test split (80/10/10) 
+• Data augmentation used for generalization  
+
+3. High-Level Architecture 
+ 
+ 
+ 
+Key idea: 
+• Git tracks code and lightweight metadata (.dvc files) 
+• DVC tracks large artifacts (datasets, models) 
+• CI validates code via tests before packaging 
+• CD deploys containerized inference service  
+
+
+4. Project Structure 
+binary-image-classification-mlops/ 
+├── src/ 
+│   ├── train.py 
+│   ├── evaluate.py 
+│   ├── inference.py 
+│   ├── versioning.py 
+│   └── performance_tracking.py 
+├── tests/ 
+├── models/ 
+├── artifacts/ 
+├── conϐigs/ 
+├── .github/work ϐlows/ 
+├── Docker ϐile 
+├── docker-compose.yml 
+├── requirements.txt 
+├── dvc.yaml 
+└── README.md 
+ 
+Notes: 
+• src/ contains core ML and API logic 
+• tests/ contains unit tests (pytest) 
+• models/ managed by DVC (NOT Git) 
+• artifacts/ stores evaluation outputs (plots, reports) 
+  
+
+5. M1 — Model Development & Experiment Tracking 
+Data & Code Versioning: 
+• Git used for source code and pipeline definitions 
+• DVC used for dataset and model versioning 
+ 
+Typical commands: 
+  dvc add data/ 
+  git add data.dvc .gitignore 
+  dvc push 
+ 
+Model Building: 
+• Baseline CNN implemented with TensorFlow/Keras 
+• Input shape: 224x224x3 
+• Binary output (cat vs dog) 
+• Model saved as model.h5 
+ 
+Experiment Tracking: 
+• MLflow used to log runs, parameters, metrics, and artifacts 
+• Logged artifacts include confusion matrix, ROC curve, and evaluation reports 
+6. M2 — Model Packaging & Containerization 
+Inference Service: 
+• FastAPI application exposes: 
+  GET /health 
+  POST /predict 
+  GET /performance 
+  GET /metrics 
+ 
+
+Important design decisions: 
+• Lazy model loading to avoid CI/test failures 
+• Safe Prometheus metric registration to avoid duplicate timeseries 
+ 
+Environment Specification: 
+• requirements.txt with pinned versions for reproducibility 
+ 
+Containerization: 
+• Dockerfile builds a reproducible inference image 
+• Local validation: 
+  docker build -t catsdogs-api . 
+  docker run -p 8000:8000 catsdogs-api 
+7. M3 — CI Pipeline (GitHub Actions) 
+Pipeline triggers: 
+• Push / PR affecting src/**, tests/**, requirements.txt 
+ 
+CI steps: 
+1. Checkout repository 
+2. Setup Python 3.10 
+3. Install dependencies 
+4. Run pytest 
+5. Build Docker image 
+ 
+Testing: 
+• Unit tests for preprocessing and inference utilities 
+• API import safety validated by tests 
+ 
+
+Outcome: 
+• Failing tests block build and deployment 
+8. M4 — CD Pipeline & Deployment 
+Deployment target: 
+• Docker Compose or Kubernetes (as configured) 
+ 
+CD flow: 
+• New image built in CI 
+• Image pushed to registry 
+• Deployment updates running service 
+ 
+Smoke tests: 
+• Health endpoint call 
+• One prediction call 
+• Pipeline fails if smoke tests fail 
+9. M5 — Monitoring, Logging & Performance Tracking 
+Logging: 
+• Request-level logging with latency and request count 
+ 
+Prometheus Metrics: 
+• prediction_requests_total 
+• prediction_latency_seconds 
+ 
+Post-deployment performance tracking: 
+• true label + predicted label logging 
+• summary endpoint for monitoring model quality 
+
+10. Key Issues Faced & Fixes 
+Issue 1: GitHub large file limit (>100MB) 
+Fix: Removed model from Git history; tracked via DVC. 
+ 
+Issue 2: Secret scanning blocked push 
+Fix: Removed service account JSON from history; added to .gitignore. 
+ 
+Issue 3: CI failures due to model loading at import time 
+Fix: Lazy model loading and safe checks for missing model. 
+ 
+Issue 4: Prometheus duplicated timeseries during pytest 
+Fix: Safe metric creation using REGISTRY fallback.  
+11. How to Run the Project Locally 
+1. Clone repository 
+   git clone <repo-url> 
+ 
+2. Create virtual environment 
+   python -m venv .venv 
+   source .venv/bin/activate   (Linux/Mac) 
+   .venv\Scripts\activate      (Windows) 
+ 
+3. Install dependencies 
+   pip install -r requirements.txt 
+ 
+4. Pull data/models (if using DVC remote) 
+   dvc pull 
+ 
+
+5. Run API 
+   uvicorn src.inference:app --reload 
+ 
+6. Run tests 
+   pytest -v 
+12. API Usage Examples 
+Health check: 
+GET /health 
+ 
+Prediction: 
+POST /predict 
+Form-data: 
+  file=<image> 
+ 
+Example response: 
+{ 
+  "label": "dog", 
+  "confidence": 0.94, 
+  "model_version": "v1" 
+} 
+ 
+Metrics: 
+GET /metrics 
+  
+
+13. Future Improvements 
+• Model registry integration (MLflow Model Registry) 
+• Automated retraining pipeline 
+• Data drift detection 
+• Canary deployment strategy 
+• Kubernetes autoscaling 
+• Caching DVC artifacts in CI for faster builds 
+14. Conclusion 
+This project demonstrates a complete MLOps lifecycle: 
+data versioning → training → experiment tracking → API packaging → containerization → CI/CD → 
+monitoring. 
+ 
+The system is designed to be reproducible, testable, and deployable with modern open-source MLOps 
+tools. 
+  
+
+15. Screenshots  
+1. Screenshot 1: Project folder structure 
+ 
+ 
+  
+
+
+2. Screenshot 2: DVC setup and dvc status 
+ 
+ 
+ 
+3. Screenshot 3: MLflow experiment tracking dashboard 
+ 
+ 
+
+
+ 
+ 
+ 
+4. Screenshot 4: Model training logs / metrics 
+ 
+
+
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+
+
+5. Screenshot 5: FastAPI /docs page 
+ 
+ 
+ 
+6. Screenshot 8: Docker build success 
+ 
+ 
+7. Screenshot 9: Docker container running 
+ 
+
+
+ 
+ 
+8. Screenshot 10: GitHub Actions CI success run 
+ 
+ 
+ 
+9. Screenshot 11: Pytest results in CI 
+ 
+
+
+ 
+ 
+10. Screenshot 12: Docker image publish step (if applicable) 
+ 
+ 
+ 
+ 
+ 
+11. Screenshot 13: Deployment running (Docker Compose/K8s) 
+ 
+
+
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+
+
+ 
+ 
+12. Screenshot 15: Prometheus metrics endpoint 
+ 
+ 
+ 
+ 
+13. Screenshot 16: Performance summary endpoint 
+ 
+
+
+ 
+ 
+ 
+ 
+ 
+ 
+16. Repository, Docker & Video Links  
+ 
+Git Hub Repository: https://github.com/KSharma-SourceCode/binary-image-classification-mlops  
+ 
+Docker Hub Image Registry: 
+https://hub.docker.com/repository/docker/ksharmadockerhub/binary-image-classification-
+mlops/general  
+ 
+CI/CD and Deployment Workflow:   https://github.com/KSharma-SourceCode/binary-image-
+classification-mlops/actions  
+ 
+Video Link:  
+ 
+Google Drive:  
+https://drive.google.com/file/d/18WJlB-jpkpWz8dW5ikWm6f63RmHeY5fu/view?usp=sharing  
+ 
+

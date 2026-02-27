@@ -1,0 +1,5 @@
+env: dev
+epochs: 20
+batch_size: 32
+augmentation: true
+mlflow_experiment: cats_dogs_dev

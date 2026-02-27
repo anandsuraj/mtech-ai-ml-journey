@@ -1,0 +1,104 @@
+name: MLOps Multi-Branch Pipeline
+
+on:
+  push:
+    branches: [development, main]
+
+env:
+  APP_NAME: binary-image-classification-mlops
+
+jobs:
+  mlops:
+    runs-on: ubuntu-latest
+
+    steps:
+
+    # ==========================
+    # Checkout Repository
+    # ==========================
+    - name: Checkout code
+      uses: actions/checkout@v4
+
+    # ==========================
+    # Setup Python
+    # ==========================
+    - name: Setup Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: "3.10"
+
+    # ==========================
+    # Install Dependencies
+    # ==========================
+    - name: Install dependencies
+      run: |
+        pip install --upgrade pip
+        pip install -r requirements.txt
+
+    #- name: Install DVC
+    #  run: |
+    #    pip install dvc[s3]
+    - name: Fix pathspec issue
+      run: pip install pathspec==0.12.1
+
+    - name: Pull dataset from DVC (S3)
+      env:
+        AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+        AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        AWS_DEFAULT_REGION: ${{ secrets.AWS_DEFAULT_REGION }}
+      run: |
+        dvc pull
+
+    # ==========================
+    # Run Unit Tests
+    # ==========================
+    - name: Run tests with coverage
+      run: |
+        pytest --cov=src tests/
+        pytest -W ignore::DeprecationWarning -v --cov=src tests/
+
+    # ==========================
+    # Train + Evaluate (DEV)
+    # ==========================
+    - name: Train model (development)
+      if: github.ref == 'refs/heads/development'
+      run: |
+        python -m src.train
+
+    - name: Evaluate model
+      if: github.ref == 'refs/heads/development'
+      run: |
+        python -m src.evaluate
+
+    - name: Promote model
+      if: github.ref == 'refs/heads/development'
+      run: |
+        python -m src.promote
+
+
+    - name: Get model version
+      id: version
+      run: |
+        VERSION=$(ls models/dev | sort -V | tail -n 1)
+        echo "version=$VERSION" >> $GITHUB_OUTPUT
+
+    # ==========================
+    # Docker Login
+    # ==========================
+    - name: Docker Login
+      run: |
+        echo "${{ secrets.DOCKER_PASSWORD }}" | docker login -u "${{ secrets.DOCKER_USERNAME }}" --password-stdin
+
+    # ==========================
+    # Build Docker Image
+    # ==========================
+    - name: Build Docker image
+      run: |
+        docker build -t ${{ secrets.DOCKER_USERNAME }}/${{ env.APP_NAME }}:${{ env.APP_NAME }}-${{ github.ref_name }}-${{ steps.version.outputs.version }} .
+
+    # ==========================
+    # Push Docker Image
+    # ==========================
+    - name: Push Docker image
+      run: |
+        docker push ${{ secrets.DOCKER_USERNAME }}/${{ env.APP_NAME }}:${{ env.APP_NAME }}-${{ github.ref_name }}-${{ steps.version.outputs.version }}
