@@ -42,6 +42,7 @@ This repository showcases my academic journey through advanced AI/ML concepts, t
 ```text
 academic-ai-ml-portfolio/
 ├── semester-3/                       # Advanced Systems, GenAI & MLOps
+│   ├── computer-vision/             # Image Classification & Segmentation
 │   ├── conversational-ai/           # Hybrid RAG & LLM Applications
 │   ├── mlops/                       # Production ML Pipelines (Docker/K8s)
 │   └── nlp-applications/            # SMT & Web-based NLP Tools
@@ -65,7 +66,17 @@ academic-ai-ml-portfolio/
 - **Description**: An end-to-end MLOps pipeline covering data versioning (DVC), experiment tracking (MLflow), FastAPI inference, containerization (Docker), and CI/CD via GitHub Actions.
 - **Tech Stack**: TensorFlow/Keras, MLflow, DVC, FastAPI, Docker, GitHub Actions, Prometheus.
 
-#### 2. **Hybrid RAG Question Answering System**
+#### 2. **Computer Vision: Image Features & Classical Machine Learning**
+**Domain**: Computer Vision | **Location**: [semester-3/computer-vision/assignment-1](semester-3/computer-vision/assignment-1/README.md)
+- **Description**: Explores foundational computer vision techniques for satellite image classification. Emphasizes classical handcrafted feature engineering (LBP, HOG, Edge Detection) paired with robust ML models (SVM, Random Forests).
+- **Tech Stack**: OpenCV, scikit-learn, Scikit-Image, Feature Engineering
+
+#### 3. **Computer Vision: Cross-Modal Attention & Semantic Segmentation**
+**Domain**: Deep Computer Vision | **Location**: [semester-3/computer-vision/assignment2](semester-3/computer-vision/assignment2/README.md)
+- **Description**: Implements advanced deep learning architectures for semantic segmentation and complex object detection. Centers on cross-modal attention frameworks for predictive environmental monitoring (Sentinel-5P NO2 dataset).
+- **Tech Stack**: PyTorch, Faster R-CNN, Semantic Segmentation, Attention Mechanisms
+
+#### 4. **Hybrid RAG Question Answering System**
 **Domain**: Generative AI | **Location**: `semester-3/conversational-ai/assignment/assignment-2`
 - **Description**: A sophisticated RAG (Retrieval-Augmented Generation) system that combines dense (FAISS) and sparse (BM25) retrieval to answer questions from a dynamic Wikipedia corpus. Features Reciprocal Rank Fusion (RRF) for optimal context retrieval.
 - **Tech Stack**:
@@ -74,7 +85,7 @@ academic-ai-ml-portfolio/
     - **Search**: Rank-BM25 (Sparse Retrieval)
     - **Backend**: Flask
 
-#### 3. **Heart Disease Prediction MLOps Pipeline**
+#### 5. **Heart Disease Prediction MLOps Pipeline**
 **Domain**: MLOps & Healthcare | **Location**: [semester-3/mlops/assignment1/mlops-heart-disease](semester-3/mlops/assignment1/mlops-heart-disease/README.md)
 - **Description**: A production-ready Machine Learning pipeline for heart disease prediction, demonstrating end-to-end MLOps practices. Includes containerization, orchestration, and automated testing.
 - **Tech Stack**:
@@ -82,7 +93,7 @@ academic-ai-ml-portfolio/
     - **ML Framework**: Scikit-learn
     - **Tools**: PyTest, CI/CD workflows
 
-#### 4. **Statistical Machine Translation (SMT) System**
+#### 6. **Statistical Machine Translation (SMT) System**
 **Domain**: NLP Applications | **Location**: `semester-3/nlp-applications/assignment/assignment2`
 - **Description**: A web-based translation workbench supporting multiple languages with integrated BLEU score evaluation. Allows comparison of translations against reference texts with detailed n-gram precision analysis.
 - **Tech Stack**:
@@ -90,7 +101,7 @@ academic-ai-ml-portfolio/
     - **Evaluation**: BLEU (SacreBLEU), N-gram analysis
     - **API**: Google Translate API
 
-#### 5. **Intelligent Spell Checker**
+#### 7. **Intelligent Spell Checker**
 **Domain**: NLP Applications | **Location**: `semester-3/nlp-applications/spell-checker-web-app-flask`
 - **Description**: A Flask-based web application for real-time spell checking. Features a history tracking system to learn from past errors and provides context-aware suggestions.
 - **Tech Stack**: Flask, PySpellChecker, JSON Storage
