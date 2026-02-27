@@ -1,0 +1,32 @@
+9. Link to the code repository : 
+
+Git Hub Repository : https://github.com/KSharma-SourceCode/AI-ML-Assignments/tree/main/M-Tech.%20Semester%203/MLOPS/Assignment-1/heart-disease-mlops
+
+Docker Hub Image Registry : https://hub.docker.com/repository/docker/ksharmadockerhub/heart-disease-api/general
+docker pull ksharmadockerhub/heart-disease-api:latest
+
+Deployment Manifests/Helm charts: https://github.com/KSharma-SourceCode/AI-ML-Assignments/tree/main/deployment/helm/heart-disease
+
+Local Setup Instructions : https://github.com/KSharma-SourceCode/AI-ML-Assignments/blob/main/M-Tech.%20Semester%203/MLOPS/Assignment-1/heart-disease-mlops/README.md
+
+CI/CD and Deployment Workflow : https://github.com/KSharma-SourceCode/AI-ML-Assignments/actions
+
+Video Links: 
+
+YouTube: https://youtu.be/ItkbTRBYdCc
+OR
+
+Google Drive : https://drive.google.com/file/d/1ZZHr5nZQmbYlZRzWCo-gNwi-Z2TJdB3e/view
+
+
+Deployment to VM
+=================
+
+In Terminal
+------------
+docker pull ksharmadockerhub/heart-disease-api:latest
+docker run -d -p 8000:8000 -e ENV=production --name heart-disease-api ksharmadockerhub/heart-disease-api:latest
+
+IN Browser
+----------
+http://localhost:8000/docs

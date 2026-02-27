@@ -1,0 +1,4 @@
+ENV: development
+TRAINING_ENABLED: "true"
+LOG_LEVEL: DEBUG
+MODEL_BASE_PATH: model/development

@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: heart-disease-prod
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: heart-disease
+      env: dev
+  template:
+    metadata:
+      labels:
+        app: heart-disease
+        env: dev
+    spec:
+      containers:
+        - name: api
+          image: <DOCKER_USERNAME>/heart-disease-api
+          imagePullPolicy: IfNotPresent
+          ports:
+            - containerPort: 8000
+          envFrom:
+            - configMapRef:
+                name: heart-disease-config-prod

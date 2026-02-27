@@ -1,0 +1,4 @@
+ENV: production
+LOG_LEVEL: INFO
+TRAINING_ENABLED: "false"
+MODEL_PATH: model/main

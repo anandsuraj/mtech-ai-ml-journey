@@ -16,3 +16,9 @@ mlflow.db
 
 # Ignore pycache directories
 __pycache__/
+
+# .ipynb_checkpoints Ignore
+.ipynb_checkpoints/
+
+#Ignore artifacts inside notebooks folde
+artifacts/

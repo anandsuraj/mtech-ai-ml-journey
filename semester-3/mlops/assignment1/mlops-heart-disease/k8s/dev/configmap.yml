@@ -1,0 +1,8 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: heart-disease-config-dev
+data:
+  ENV: "development"
+  TRAINING_ENABLED: "false"
+  LOG_LEVEL: "DEBUG"

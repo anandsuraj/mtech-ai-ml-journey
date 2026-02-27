@@ -1,0 +1,19 @@
+image:
+  repository: ksharmadockerhub/heart-disease-api
+  tag: latest
+  pullPolicy: IfNotPresent
+
+replicaCount: 2
+
+env:
+  ENV: production
+  TRAINING_ENABLED: "false"
+
+service:
+  type: ClusterIP
+  port: 80
+  targetPort: 8000
+
+ingress:
+  enabled: true
+  host: heart.local
