@@ -5,6 +5,7 @@ Welcome to the end-to-end MLOps pipeline for a Binary Image Classification syste
 **Note:** This was built as an academic project to demonstrate a complete MLOps lifecycle from local to production environments.
 
 ## Important Links
+- **Assignment Instructions:** [MLOPS-Assignment-2-Group-3.pdf](./MLOPS-Assignment-2-Group-3.pdf)
 - **GitHub Repository:** [binary-image-classification-mlops](https://github.com/KSharma-SourceCode/binary-image-classification-mlops)
 - **Docker Hub Images:** [ksharmadockerhub/binary-image-classification-mlops](https://hub.docker.com/repository/docker/ksharmadockerhub/binary-image-classification-mlops/general)
 - **CI/CD Workflows:** [GitHub Actions Dashboard](https://github.com/KSharma-SourceCode/binary-image-classification-mlops/actions)
