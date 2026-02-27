@@ -87,7 +87,7 @@ academic-ai-ml-portfolio/
     - **Backend**: Flask
 
 #### 5. **Heart Disease Prediction MLOps Pipeline**
-**Domain**: MLOps & Healthcare | **Location**: [semester-3/mlops/assignment1/mlops-heart-disease](semester-3/mlops/assignment1/mlops-heart-disease/README.md)
+**Domain**: MLOps & Healthcare | **Location**: [https://github.com/KSharma-SourceCode/AI-ML-Assignments/tree/main/M-Tech.%20Semester%203/MLOPS/Assignment-1/heart-disease-mlops](https://github.com/KSharma-SourceCode/AI-ML-Assignments/tree/main/M-Tech.%20Semester%203/MLOPS/Assignment-1/heart-disease-mlops)
 - **Description**: A production-ready Machine Learning pipeline for heart disease prediction, demonstrating end-to-end MLOps practices. Includes containerization, orchestration, and automated testing.
 - **Tech Stack**:
     - **Infrastructure**: Docker, Kubernetes (K8s)

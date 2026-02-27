@@ -12,7 +12,7 @@ To fully understand the scope and implementation of this project, refer to the f
 **Project Documentation:**
 - **Assignment Instructions:** [MLOPs_assignment_3rd_sem_instructions.pdf](../MLOPs_assignment_3rd_sem_.pdf)
 - **Final Group Submission Report:** [MLOPS_Assignment_1_Group_3_Submission.pdf](../MLOPS_Assignment_1_Group_3_Submission.pdf)
-- **Setup & Install Instructions:** [Setup-Install-Instructions.pdf](../Setup-Install-Instructions%20(1).pdf)
+- **Setup & Install Instructions:** [Setup-Install-Instructions.pdf](../Setup-Install-Instructions.pdf)
 
 **Repository & Deployment Resources:**
 - **Code Repository:** [GitHub Repository Source](https://github.com/KSharma-SourceCode/AI-ML-Assignments/tree/main/M-Tech.%20Semester%203/MLOPS/Assignment-1/heart-disease-mlops)
