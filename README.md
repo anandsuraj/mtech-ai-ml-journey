@@ -7,7 +7,7 @@
 [![Docker](https://img.shields.io/badge/Docker-Enabled-blue.svg)](https://docker.com)
 [![Kubernetes](https://img.shields.io/badge/Kubernetes-Ready-blue.svg)](https://kubernetes.io)
 
-> *A comprehensive collection of AI/ML projects, assignments, and research implementations from my M.Tech program at BITS Pilani. This repository demonstrates practical applications across Deep Learning, Reinforcement Learning, Natural Language Processing, MLOps, and Generative AI.*
+> *A comprehensive collection of AI/ML projects, assignments, and research implementations from my M.Tech program at BITS Pilani. This repository demonstrates practical applications across Deep Learning, Reinforcement Learning, Natural Language Processing, MLOps, Computer Vision, and Generative AI.*
 
 ---
 
@@ -15,7 +15,7 @@
 - [Overview](#overview)
 - [Repository Structure](#repository-structure)
 - [Projects Showcase](#projects-showcase)
-    - [Semester 3: Advanced Systems & MLOps](#semester-3-advanced-systems--mlops)
+    - [Semester 3: Advanced Systems, Computer Vision & MLOps](#semester-3-advanced-systems-computer-vision--mlops)
     - [Semester 2: Deep Learning & NLP](#semester-2-deep-learning--nlp)
     - [Semester 1: Foundations & Game AI](#semester-1-foundations--game-ai)
 - [Technologies Used](#technologies-used)
@@ -60,7 +60,7 @@ academic-ai-ml-portfolio/
 
 ## Projects Showcase
 
-### Semester 3: Advanced Systems & MLOps
+### Semester 3: Advanced Systems, Computer Vision & MLOps
 
 #### 1. **Binary Image Classification – MLOps Pipeline (Cats vs Dogs)**
 **Domain**: MLOps | **Location**: [semester-3/mlops/assignment2](semester-3/mlops/assignment2/README.md)
